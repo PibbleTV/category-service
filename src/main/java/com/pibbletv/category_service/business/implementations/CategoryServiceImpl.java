@@ -16,10 +16,8 @@ public class CategoryServiceImpl implements CategoryService {
     private final CategoryRepository categoryRepository;
 
     @Override
-    public List<Category> getAllCategories() {
+    public Flux<Category> getAllCategories() {
         return categoryRepository.findAll()
-                .stream()
-                .map(CategoryConverter::convertToObject)
-                .toList();
+                .map(CategoryConverter::convertToObject);
     }
 }

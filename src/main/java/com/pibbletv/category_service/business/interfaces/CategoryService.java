@@ -5,5 +5,5 @@ import com.pibbletv.category_service.domain.Category;
 import java.util.List;
 
 public interface CategoryService {
-    List<Category> getAllCategories();
+    Flux<Category> getAllCategories();
 }
