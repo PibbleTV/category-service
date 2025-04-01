@@ -1,4 +1,4 @@
-package com.pibbletv.category_service.persistance.jpa;
+package com.pibbletv.category_service.persistance.repository;
 
 import com.pibbletv.category_service.persistance.entities.CategoryEntity;
 import org.springframework.data.repository.reactive.ReactiveCrudRepository;
