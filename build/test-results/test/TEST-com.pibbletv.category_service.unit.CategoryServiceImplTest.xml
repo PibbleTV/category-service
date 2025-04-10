@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.pibbletv.category_service.unit.CategoryServiceImplTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2025-04-10T23:39:47.598Z" hostname="DESKTOP-NS6POVE" time="0.36">
+  <properties/>
+  <testcase name="testGetAllCategories_AllCategories_FetchedSuccessfully()" classname="com.pibbletv.category_service.unit.CategoryServiceImplTest" time="0.354"/>
+  <testcase name="testGetAllCategories_EmptyList()" classname="com.pibbletv.category_service.unit.CategoryServiceImplTest" time="0.005"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
