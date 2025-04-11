@@ -28,7 +28,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-webflux'
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'jakarta.validation:jakarta.validation-api:3.0.2'
-    implementation 'org.hibernate.validator:hibernate-validator:8.0.1.Final'
+    implementation 'org.hibernate.validator:hibernate-validator:8.0.2.Final'
     implementation "org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:4.2.1"
     implementation 'io.asyncer:r2dbc-mysql:1.0.2'
     compileOnly 'org.projectlombok:lombok'
