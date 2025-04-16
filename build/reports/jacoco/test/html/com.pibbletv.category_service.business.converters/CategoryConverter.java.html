@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CategoryConverter.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">category_service</a> &gt; <a href="index.source.html" class="el_package">com.pibbletv.category_service.business.converters</a> &gt; <span class="el_source">CategoryConverter.java</span></div><h1>CategoryConverter.java</h1><pre class="source lang-java linenums">package com.pibbletv.category_service.business.converters;
+
+import com.pibbletv.category_service.domain.Category;
+import com.pibbletv.category_service.persistance.entities.CategoryEntity;
+
+import java.util.Base64;
+
+public final class CategoryConverter {
+
+<span class="nc" id="L10">    private CategoryConverter() {</span>
+<span class="nc" id="L11">        throw new IllegalStateException(&quot;Category converter&quot;);</span>
+    }
+
+    public static Category convertToObject(CategoryEntity entity)
+    {
+<span class="pc bpc" id="L16" title="1 of 2 branches missed.">        if (entity == null) return null;</span>
+
+<span class="fc" id="L18">        return Category.builder()</span>
+<span class="fc" id="L19">                .id(entity.getId())</span>
+<span class="fc" id="L20">                .name(entity.getName())</span>
+<span class="pc bpc" id="L21" title="1 of 2 branches missed.">                .image(entity.getImage() != null ? Base64.getEncoder().encodeToString(entity.getImage()) : null)</span>
+<span class="fc" id="L22">                .build();</span>
+    }
+
+    public static CategoryEntity convertToEntity(Category category) {
+<span class="nc bnc" id="L26" title="All 2 branches missed.">        if (category == null) return null;</span>
+
+<span class="nc" id="L28">        return CategoryEntity.builder()</span>
+<span class="nc" id="L29">                .id(category.getId())</span>
+<span class="nc" id="L30">                .name(category.getName())</span>
+<span class="nc bnc" id="L31" title="All 2 branches missed.">                .image(category.getImage() != null ? Base64.getDecoder().decode(category.getImage()) : null)</span>
+<span class="nc" id="L32">                .build();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
