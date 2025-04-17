@@ -9,16 +9,17 @@ plugins {
 sonar {
     properties {
         property "sonar.java.coveragePlugin", "jacoco"
+        property "sonar.coverage.jacoco.xmlReportPaths", "build/reports/jacoco/test/jacocoTestReport.xml"
         property "sonar.qualitygate.wait", true
         property "sonar.coverage.exclusions", [
-                'src//com/pibbletv/follows_service/controller/CategoryController.java',
-                'src//com/pibbletv/follows_service/business/converters/CategoryConverter.java',
-                'src//com/pibbletv/follows_service/CategoryServiceApplication.java',
+                'src//com/pibbletv/category_service/controller/CategoryController.java',
+                'src//com/pibbletv/category_service/business/converters/CategoryConverter.java',
+                'src//com/pibbletv/category_service/CategoryServiceApplication.java',
         ]
         property "sonar.cpd.exclusions", [
-                'src//com/pibbletv/follows_service/controller/CategoryController.java',
-                'src//com/pibbletv/follows_service/business/converters/CategoryConverter.java',
-                'src//com/pibbletv/follows_service/CategoryServiceApplication.java',
+                'src//com/pibbletv/category_service/controller/CategoryController.java',
+                'src//com/pibbletv/category_service/business/converters/CategoryConverter.java',
+                'src//com/pibbletv/category_service/CategoryServiceApplication.java',
         ]
 
     }
