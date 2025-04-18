@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.904s</div>
+<div class="counter">0.891s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,7 +79,7 @@
 </thead>
 <tr>
 <td class="success">contextLoads()</td>
-<td class="success">0.904s</td>
+<td class="success">0.891s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -87,8 +87,8 @@
 <div class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>14:32:56.129 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.pibbletv.category_service.CategoryServiceApplicationTests]: CategoryServiceApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-14:32:56.336 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.pibbletv.category_service.CategoryServiceApplication for test class com.pibbletv.category_service.CategoryServiceApplicationTests
+<pre>23:41:17.394 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.pibbletv.category_service.CategoryServiceApplicationTests]: CategoryServiceApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+23:41:17.625 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.pibbletv.category_service.CategoryServiceApplication for test class com.pibbletv.category_service.CategoryServiceApplicationTests
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -99,28 +99,28 @@
 
  :: Spring Boot ::                (v3.4.4)
 
-2025-04-16T14:32:57.403+02:00  INFO 8532 --- [category-service] [    Test worker] c.p.c.CategoryServiceApplicationTests    : Starting CategoryServiceApplicationTests using Java 17.0.12 with PID 8532 (started by hristo in D:\Individual Assignment\PibbleTV-Backend\category-service)
-2025-04-16T14:32:57.405+02:00  INFO 8532 --- [category-service] [    Test worker] c.p.c.CategoryServiceApplicationTests    : The following 1 profile is active: &quot;test&quot;
-2025-04-16T14:32:58.289+02:00  INFO 8532 --- [category-service] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data R2DBC repositories in DEFAULT mode.
-2025-04-16T14:32:58.516+02:00  INFO 8532 --- [category-service] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 217 ms. Found 1 R2DBC repository interface.
-2025-04-16T14:32:58.789+02:00  INFO 8532 --- [category-service] [    Test worker] o.s.cloud.context.scope.GenericScope     : BeanFactory id=6e122a9b-fa1f-3fca-a53d-327a10b3d573
-2025-04-16T14:33:00.292+02:00  INFO 8532 --- [category-service] [    Test worker] ctiveUserDetailsServiceAutoConfiguration : 
+2025-04-18T23:41:18.742+02:00  INFO 3464 --- [category-service] [    Test worker] c.p.c.CategoryServiceApplicationTests    : Starting CategoryServiceApplicationTests using Java 17.0.12 with PID 3464 (started by hristo in D:\Individual Assignment\PibbleTV-Backend\category-service)
+2025-04-18T23:41:18.744+02:00  INFO 3464 --- [category-service] [    Test worker] c.p.c.CategoryServiceApplicationTests    : The following 1 profile is active: &quot;test&quot;
+2025-04-18T23:41:19.684+02:00  INFO 3464 --- [category-service] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data R2DBC repositories in DEFAULT mode.
+2025-04-18T23:41:19.929+02:00  INFO 3464 --- [category-service] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 233 ms. Found 1 R2DBC repository interface.
+2025-04-18T23:41:20.284+02:00  INFO 3464 --- [category-service] [    Test worker] o.s.cloud.context.scope.GenericScope     : BeanFactory id=6e122a9b-fa1f-3fca-a53d-327a10b3d573
+2025-04-18T23:41:21.945+02:00  INFO 3464 --- [category-service] [    Test worker] ctiveUserDetailsServiceAutoConfiguration : 
 
-Using generated security password: a821040c-22da-436e-8f25-35a7a227df53
+Using generated security password: 96669f6c-535f-4630-96c0-44b3243a8c26
 
-2025-04-16T14:33:00.830+02:00  INFO 8532 --- [category-service] [    Test worker] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
-2025-04-16T14:33:01.014+02:00  WARN 8532 --- [category-service] [    Test worker] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-2025-04-16T14:33:01.113+02:00  INFO 8532 --- [category-service] [    Test worker] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
-2025-04-16T14:33:01.163+02:00  INFO 8532 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
-2025-04-16T14:33:01.171+02:00  INFO 8532 --- [category-service] [    Test worker] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2025-04-16T14:33:01.185+02:00  INFO 8532 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
-2025-04-16T14:33:01.185+02:00  INFO 8532 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
-2025-04-16T14:33:01.185+02:00  INFO 8532 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
-2025-04-16T14:33:01.186+02:00  INFO 8532 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Application is null : false
-2025-04-16T14:33:01.186+02:00  INFO 8532 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
-2025-04-16T14:33:01.186+02:00  INFO 8532 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
-2025-04-16T14:33:01.186+02:00  INFO 8532 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
-2025-04-16T14:33:01.682+02:00  INFO 8532 --- [category-service] [    Test worker] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on GET request for &quot;http://localhost:8761/eureka/apps/&quot;: Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on GET request for &quot;http://localhost:8761/eureka/apps/&quot;: Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2025-04-18T23:41:22.557+02:00  INFO 3464 --- [category-service] [    Test worker] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2025-04-18T23:41:22.751+02:00  WARN 3464 --- [category-service] [    Test worker] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-04-18T23:41:22.866+02:00  INFO 3464 --- [category-service] [    Test worker] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2025-04-18T23:41:22.910+02:00  INFO 3464 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2025-04-18T23:41:22.922+02:00  INFO 3464 --- [category-service] [    Test worker] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-04-18T23:41:22.938+02:00  INFO 3464 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2025-04-18T23:41:22.938+02:00  INFO 3464 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2025-04-18T23:41:22.938+02:00  INFO 3464 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2025-04-18T23:41:22.938+02:00  INFO 3464 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2025-04-18T23:41:22.938+02:00  INFO 3464 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2025-04-18T23:41:22.939+02:00  INFO 3464 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2025-04-18T23:41:22.939+02:00  INFO 3464 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2025-04-18T23:41:23.507+02:00  INFO 3464 --- [category-service] [    Test worker] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on GET request for &quot;http://localhost:8761/eureka/apps/&quot;: Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on GET request for &quot;http://localhost:8761/eureka/apps/&quot;: Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
 	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:926)
 	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:906)
 	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:841)
@@ -322,8 +322,8 @@ Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http:
 	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:900)
 	... 162 more
 
-2025-04-16T14:33:01.700+02:00  WARN 8532 --- [category-service] [    Test worker] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: I/O error on GET request for &quot;http://localhost:8761/eureka/apps/&quot;: Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
-2025-04-16T14:33:01.702+02:00  INFO 8532 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CATEGORY-SERVICE/host.docker.internal:category-service:8082 - was unable to refresh its cache! This periodic background refresh will be retried in 30 seconds. status = Cannot execute request on any known server stacktrace = com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+2025-04-18T23:41:23.517+02:00  WARN 3464 --- [category-service] [    Test worker] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: I/O error on GET request for &quot;http://localhost:8761/eureka/apps/&quot;: Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2025-04-18T23:41:23.519+02:00  INFO 3464 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CATEGORY-SERVICE/host.docker.internal:category-service:8082 - was unable to refresh its cache! This periodic background refresh will be retried in 30 seconds. status = Cannot execute request on any known server stacktrace = com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
 	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
 	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getApplications(EurekaHttpClientDecorator.java:134)
 	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$6.execute(EurekaHttpClientDecorator.java:137)
@@ -478,17 +478,17 @@ Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http:
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
 
-2025-04-16T14:33:01.705+02:00  INFO 8532 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Initial registry fetch from primary servers failed
-2025-04-16T14:33:01.706+02:00  WARN 8532 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Using default backup registry implementation which does not do anything.
-2025-04-16T14:33:01.706+02:00  INFO 8532 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Initial registry fetch from backup servers failed
-2025-04-16T14:33:01.707+02:00  INFO 8532 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
-2025-04-16T14:33:01.709+02:00  INFO 8532 --- [category-service] [    Test worker] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
-2025-04-16T14:33:01.711+02:00  INFO 8532 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1744806781711 with initial instances count: 0
-2025-04-16T14:33:01.714+02:00  INFO 8532 --- [category-service] [    Test worker] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application CATEGORY-SERVICE with eureka with status UP
-2025-04-16T14:33:01.715+02:00  INFO 8532 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1744806781715, current=UP, previous=STARTING]
-2025-04-16T14:33:01.717+02:00  INFO 8532 --- [category-service] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CATEGORY-SERVICE/host.docker.internal:category-service:8082: registering service...
-2025-04-16T14:33:01.738+02:00  INFO 8532 --- [category-service] [    Test worker] c.p.c.CategoryServiceApplicationTests    : Started CategoryServiceApplicationTests in 4.981 seconds (process running for 7.212)
-2025-04-16T14:33:01.814+02:00  INFO 8532 --- [category-service] [foReplicator-%d] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on POST request for &quot;http://localhost:8761/eureka/apps/CATEGORY-SERVICE&quot;: Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on POST request for &quot;http://localhost:8761/eureka/apps/CATEGORY-SERVICE&quot;: Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2025-04-18T23:41:23.526+02:00  INFO 3464 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Initial registry fetch from primary servers failed
+2025-04-18T23:41:23.526+02:00  WARN 3464 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Using default backup registry implementation which does not do anything.
+2025-04-18T23:41:23.527+02:00  INFO 3464 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Initial registry fetch from backup servers failed
+2025-04-18T23:41:23.527+02:00  INFO 3464 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2025-04-18T23:41:23.531+02:00  INFO 3464 --- [category-service] [    Test worker] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-04-18T23:41:23.533+02:00  INFO 3464 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1745012483532 with initial instances count: 0
+2025-04-18T23:41:23.538+02:00  INFO 3464 --- [category-service] [    Test worker] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application CATEGORY-SERVICE with eureka with status UP
+2025-04-18T23:41:23.539+02:00  INFO 3464 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1745012483539, current=UP, previous=STARTING]
+2025-04-18T23:41:23.542+02:00  INFO 3464 --- [category-service] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CATEGORY-SERVICE/host.docker.internal:category-service:8082: registering service...
+2025-04-18T23:41:23.568+02:00  INFO 3464 --- [category-service] [    Test worker] c.p.c.CategoryServiceApplicationTests    : Started CategoryServiceApplicationTests in 5.477 seconds (process running for 7.905)
+2025-04-18T23:41:23.622+02:00  INFO 3464 --- [category-service] [foReplicator-%d] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on POST request for &quot;http://localhost:8761/eureka/apps/CATEGORY-SERVICE&quot;: Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on POST request for &quot;http://localhost:8761/eureka/apps/CATEGORY-SERVICE&quot;: Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
 	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:926)
 	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:906)
 	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:841)
@@ -550,8 +550,8 @@ Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http:
 	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:900)
 	... 22 more
 
-2025-04-16T14:33:01.816+02:00  WARN 8532 --- [category-service] [foReplicator-%d] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: I/O error on POST request for &quot;http://localhost:8761/eureka/apps/CATEGORY-SERVICE&quot;: Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
-2025-04-16T14:33:01.817+02:00  WARN 8532 --- [category-service] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CATEGORY-SERVICE/host.docker.internal:category-service:8082 - registration failed Cannot execute request on any known server
+2025-04-18T23:41:23.624+02:00  WARN 3464 --- [category-service] [foReplicator-%d] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: I/O error on POST request for &quot;http://localhost:8761/eureka/apps/CATEGORY-SERVICE&quot;: Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: no further information
+2025-04-18T23:41:23.625+02:00  WARN 3464 --- [category-service] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CATEGORY-SERVICE/host.docker.internal:category-service:8082 - registration failed Cannot execute request on any known server
 
 com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
 	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112) ~[eureka-client-2.0.4.jar:2.0.4]
@@ -569,7 +569,7 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
 	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
 
-2025-04-16T14:33:01.824+02:00  WARN 8532 --- [category-service] [foReplicator-%d] c.n.discovery.InstanceInfoReplicator     : There was a problem with the instance info replicator
+2025-04-18T23:41:23.636+02:00  WARN 3464 --- [category-service] [foReplicator-%d] c.n.discovery.InstanceInfoReplicator     : There was a problem with the instance info replicator
 
 com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
 	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112) ~[eureka-client-2.0.4.jar:2.0.4]
@@ -598,7 +598,7 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="https://www.gradle.org">Gradle 8.13</a> at Apr 16, 2025, 2:33:06 PM</p>
+<a href="https://www.gradle.org">Gradle 8.13</a> at Apr 18, 2025, 11:41:28 PM</p>
 </div>
 </div>
 </body>

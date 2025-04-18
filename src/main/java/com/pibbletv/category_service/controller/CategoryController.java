@@ -11,13 +11,13 @@ import reactor.core.publisher.Flux;
 
 
 @RestController
-@RequestMapping("/category")
+@RequestMapping("/category-service")
 @AllArgsConstructor
 public class CategoryController {
 
     private final CategoryService categoryService;
 
-    @GetMapping(value = "getAll")
+    @GetMapping(value = "/getAll")
     public Flux<Category> getAllCategories() {
         return categoryService.getAllCategories();
     }
