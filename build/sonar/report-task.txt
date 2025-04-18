@@ -1,6 +1,0 @@
-projectKey=category-service
-serverUrl=http://localhost:9000
-serverVersion=25.4.0.105899
-dashboardUrl=http://localhost:9000/dashboard?id=category-service
-ceTaskId=0c869180-aed3-4f97-9cae-33304e72943e
-ceTaskUrl=http://localhost:9000/api/ce/task?id=0c869180-aed3-4f97-9cae-33304e72943e
