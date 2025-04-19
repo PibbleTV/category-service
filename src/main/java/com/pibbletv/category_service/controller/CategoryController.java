@@ -11,8 +11,8 @@ import reactor.core.publisher.Flux;
 
 
 @RestController
-@RequestMapping("/category-service")
 @AllArgsConstructor
+@RequestMapping("/category")
 public class CategoryController {
 
     private final CategoryService categoryService;
