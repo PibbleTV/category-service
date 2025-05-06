@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.pibbletv.category_service.CategoryServiceApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-04-19T22:30:41.185Z" hostname="DESKTOP-NS6POVE" time="0.986">
+<testsuite name="com.pibbletv.category_service.CategoryServiceApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-04-26T18:51:26.036Z" hostname="DESKTOP-NS6POVE" time="0.922">
   <properties/>
-  <testcase name="contextLoads()" classname="com.pibbletv.category_service.CategoryServiceApplicationTests" time="0.986"/>
-  <system-out><![CDATA[00:30:35.335 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.pibbletv.category_service.CategoryServiceApplicationTests]: CategoryServiceApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-00:30:35.568 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.pibbletv.category_service.CategoryServiceApplication for test class com.pibbletv.category_service.CategoryServiceApplicationTests
+  <testcase name="contextLoads()" classname="com.pibbletv.category_service.CategoryServiceApplicationTests" time="0.922"/>
+  <system-out><![CDATA[20:51:20.195 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.pibbletv.category_service.CategoryServiceApplicationTests]: CategoryServiceApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+20:51:20.409 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.pibbletv.category_service.CategoryServiceApplication for test class com.pibbletv.category_service.CategoryServiceApplicationTests
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -14,36 +14,36 @@
 
  :: Spring Boot ::                (v3.4.4)
 
-2025-04-20T00:30:36.685+02:00  INFO 11100 --- [category-service] [    Test worker] c.p.c.CategoryServiceApplicationTests    : Starting CategoryServiceApplicationTests using Java 17.0.12 with PID 11100 (started by hristo in D:\Individual Assignment\PibbleTV-Backend\category-service)
-2025-04-20T00:30:36.687+02:00  INFO 11100 --- [category-service] [    Test worker] c.p.c.CategoryServiceApplicationTests    : The following 1 profile is active: "test"
-2025-04-20T00:30:37.589+02:00  INFO 11100 --- [category-service] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data R2DBC repositories in DEFAULT mode.
-2025-04-20T00:30:37.810+02:00  INFO 11100 --- [category-service] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 211 ms. Found 1 R2DBC repository interface.
-2025-04-20T00:30:38.085+02:00  INFO 11100 --- [category-service] [    Test worker] o.s.cloud.context.scope.GenericScope     : BeanFactory id=6e122a9b-fa1f-3fca-a53d-327a10b3d573
-2025-04-20T00:30:39.671+02:00  INFO 11100 --- [category-service] [    Test worker] ctiveUserDetailsServiceAutoConfiguration : 
+2025-04-26T20:51:21.468+02:00  INFO 14392 --- [category-service] [    Test worker] c.p.c.CategoryServiceApplicationTests    : Starting CategoryServiceApplicationTests using Java 17.0.12 with PID 14392 (started by hristo in D:\Individual Assignment\PibbleTV-Backend\category-service)
+2025-04-26T20:51:21.470+02:00  INFO 14392 --- [category-service] [    Test worker] c.p.c.CategoryServiceApplicationTests    : The following 1 profile is active: "test"
+2025-04-26T20:51:22.355+02:00  INFO 14392 --- [category-service] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data R2DBC repositories in DEFAULT mode.
+2025-04-26T20:51:22.590+02:00  INFO 14392 --- [category-service] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 224 ms. Found 1 R2DBC repository interface.
+2025-04-26T20:51:22.872+02:00  INFO 14392 --- [category-service] [    Test worker] o.s.cloud.context.scope.GenericScope     : BeanFactory id=6e122a9b-fa1f-3fca-a53d-327a10b3d573
+2025-04-26T20:51:24.509+02:00  INFO 14392 --- [category-service] [    Test worker] ctiveUserDetailsServiceAutoConfiguration : 
 
-Using generated security password: db3a9741-8c41-4ad4-9cc2-1edd304cdc7f
+Using generated security password: 6b26a8f0-9470-47ed-b0db-70b700f3c8cc
 
-2025-04-20T00:30:40.240+02:00  INFO 11100 --- [category-service] [    Test worker] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
-2025-04-20T00:30:40.421+02:00  WARN 11100 --- [category-service] [    Test worker] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-2025-04-20T00:30:40.528+02:00  INFO 11100 --- [category-service] [    Test worker] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
-2025-04-20T00:30:40.568+02:00  INFO 11100 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
-2025-04-20T00:30:40.575+02:00  INFO 11100 --- [category-service] [    Test worker] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2025-04-20T00:30:40.591+02:00  INFO 11100 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
-2025-04-20T00:30:40.591+02:00  INFO 11100 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
-2025-04-20T00:30:40.591+02:00  INFO 11100 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
-2025-04-20T00:30:40.591+02:00  INFO 11100 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Application is null : false
-2025-04-20T00:30:40.592+02:00  INFO 11100 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
-2025-04-20T00:30:40.592+02:00  INFO 11100 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
-2025-04-20T00:30:40.592+02:00  INFO 11100 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
-2025-04-20T00:30:41.138+02:00  INFO 11100 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : The response status is 200
-2025-04-20T00:30:41.142+02:00  INFO 11100 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
-2025-04-20T00:30:41.144+02:00  INFO 11100 --- [category-service] [    Test worker] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
-2025-04-20T00:30:41.148+02:00  INFO 11100 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1745101841146 with initial instances count: 0
-2025-04-20T00:30:41.152+02:00  INFO 11100 --- [category-service] [    Test worker] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application CATEGORY-SERVICE with eureka with status UP
-2025-04-20T00:30:41.153+02:00  INFO 11100 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1745101841153, current=UP, previous=STARTING]
-2025-04-20T00:30:41.156+02:00  INFO 11100 --- [category-service] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CATEGORY-SERVICE/host.docker.internal:category-service:8082: registering service...
-2025-04-20T00:30:41.175+02:00  INFO 11100 --- [category-service] [    Test worker] c.p.c.CategoryServiceApplicationTests    : Started CategoryServiceApplicationTests in 5.121 seconds (process running for 7.594)
-2025-04-20T00:30:41.225+02:00  INFO 11100 --- [category-service] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CATEGORY-SERVICE/host.docker.internal:category-service:8082 - registration status: 204
+2025-04-26T20:51:25.076+02:00  INFO 14392 --- [category-service] [    Test worker] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2025-04-26T20:51:25.269+02:00  WARN 14392 --- [category-service] [    Test worker] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-04-26T20:51:25.377+02:00  INFO 14392 --- [category-service] [    Test worker] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2025-04-26T20:51:25.421+02:00  INFO 14392 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2025-04-26T20:51:25.428+02:00  INFO 14392 --- [category-service] [    Test worker] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-04-26T20:51:25.443+02:00  INFO 14392 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2025-04-26T20:51:25.444+02:00  INFO 14392 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2025-04-26T20:51:25.444+02:00  INFO 14392 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2025-04-26T20:51:25.444+02:00  INFO 14392 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2025-04-26T20:51:25.444+02:00  INFO 14392 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2025-04-26T20:51:25.444+02:00  INFO 14392 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2025-04-26T20:51:25.444+02:00  INFO 14392 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2025-04-26T20:51:25.989+02:00  INFO 14392 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2025-04-26T20:51:25.992+02:00  INFO 14392 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2025-04-26T20:51:25.995+02:00  INFO 14392 --- [category-service] [    Test worker] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-04-26T20:51:25.997+02:00  INFO 14392 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1745693485997 with initial instances count: 3
+2025-04-26T20:51:26.001+02:00  INFO 14392 --- [category-service] [    Test worker] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application CATEGORY-SERVICE with eureka with status UP
+2025-04-26T20:51:26.002+02:00  INFO 14392 --- [category-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1745693486002, current=UP, previous=STARTING]
+2025-04-26T20:51:26.005+02:00  INFO 14392 --- [category-service] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CATEGORY-SERVICE/host.docker.internal:category-service:8082: registering service...
+2025-04-26T20:51:26.026+02:00  INFO 14392 --- [category-service] [    Test worker] c.p.c.CategoryServiceApplicationTests    : Started CategoryServiceApplicationTests in 5.184 seconds (process running for 7.463)
+2025-04-26T20:51:26.072+02:00  INFO 14392 --- [category-service] [foReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CATEGORY-SERVICE/host.docker.internal:category-service:8082 - registration status: 204
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
