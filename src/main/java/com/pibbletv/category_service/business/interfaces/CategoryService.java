@@ -9,6 +9,8 @@ import reactor.core.publisher.Mono;
 public interface CategoryService {
     Flux<Category> getAllCategories();
 
+    Flux<Category> getCategoriesByKeyword(String name);
+
     Mono<Void> addCategory(Category category);
 
     Mono<Void> updateCategory(Category category);

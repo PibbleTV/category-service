@@ -22,6 +22,12 @@ public class CategoryController {
         return categoryService.getAllCategories();
     }
 
+    @GetMapping(value = "/getByKeyword")
+    public  Flux<Category> getCategoriesByKeyword(@RequestParam String keyword) {
+
+        return categoryService.getCategoriesByKeyword(keyword);
+    }
+
     @PreAuthorize("hasRole('admin')")
     @PostMapping(value = "/addCategory")
     public Mono<Void> addCategory(@RequestBody Category category) {
@@ -39,5 +45,6 @@ public class CategoryController {
     public Mono<Void> deleteCategory(@RequestParam Long categoryId) {
         return categoryService.deleteCategory(categoryId);
     }
+
 }
 
