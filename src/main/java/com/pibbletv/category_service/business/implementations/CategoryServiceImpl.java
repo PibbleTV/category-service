@@ -26,6 +26,12 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
+    public Flux<Category> getCategoriesByKeyword(String keyword) {
+        return categoryRepository.findByKeyword(keyword)
+                .map(CategoryConverter::convertToObject);
+    }
+
+    @Override
     public Mono<Void> addCategory(Category category) {
 
         CategoryEntity categoryEntity = CategoryConverter.convertToEntity(category);
