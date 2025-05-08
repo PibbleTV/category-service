@@ -45,8 +45,6 @@ public class CategoryServiceImpl implements CategoryService {
     public Mono<Void> updateCategory(Category category) {
 
         CategoryEntity categoryEntity = CategoryConverter.convertToEntity(category);
-
-
         return categoryRepository.save(categoryEntity)
                 .then();
     }

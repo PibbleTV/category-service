@@ -23,13 +23,13 @@
 <tr>
 <td>
 <div class="infoBox" id="tests">
-<div class="counter">2</div>
+<div class="counter">10</div>
 <p>tests</p>
 </div>
 </td>
 <td>
 <div class="infoBox" id="failures">
-<div class="counter">0</div>
+<div class="counter">5</div>
 <p>failures</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.568s</div>
+<div class="counter">2.564s</div>
 <p>duration</p>
 </div>
 </td>
@@ -50,8 +50,8 @@
 </div>
 </td>
 <td>
-<div class="infoBox success" id="successRate">
-<div class="percent">100%</div>
+<div class="infoBox failures" id="successRate">
+<div class="percent">50%</div>
 <p>successful</p>
 </div>
 </td>
@@ -61,9 +61,126 @@
 <div class="tab-container">
 <ul class="tabLinks">
 <li>
+<a href="#">Failed tests</a>
+</li>
+<li>
 <a href="#">Tests</a>
 </li>
 </ul>
+<div class="tab">
+<h2>Failed tests</h2>
+<div class="test">
+<a name="testAddCategory_SaveFails()"></a>
+<h3 class="failures">testAddCategory_SaveFails()</h3>
+<span class="code">
+<pre>java.lang.IllegalArgumentException: Last unit does not have enough valid bits
+	at java.base/java.util.Base64$Decoder.decode0(Base64.java:868)
+	at java.base/java.util.Base64$Decoder.decode(Base64.java:566)
+	at java.base/java.util.Base64$Decoder.decode(Base64.java:589)
+	at com.pibbletv.category_service.business.converters.CategoryConverter.convertToEntity(CategoryConverter.java:31)
+	at com.pibbletv.category_service.unit.CategoryServiceImplTest.testAddCategory_SaveFails(CategoryServiceImplTest.java:100)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="testAddCategory_SuccessfullySaved()"></a>
+<h3 class="failures">testAddCategory_SuccessfullySaved()</h3>
+<span class="code">
+<pre>java.lang.IllegalArgumentException: Last unit does not have enough valid bits
+	at java.base/java.util.Base64$Decoder.decode0(Base64.java:868)
+	at java.base/java.util.Base64$Decoder.decode(Base64.java:566)
+	at java.base/java.util.Base64$Decoder.decode(Base64.java:589)
+	at com.pibbletv.category_service.business.converters.CategoryConverter.convertToEntity(CategoryConverter.java:31)
+	at com.pibbletv.category_service.unit.CategoryServiceImplTest.testAddCategory_SuccessfullySaved(CategoryServiceImplTest.java:89)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="testDeleteCategory_CategoryExists()"></a>
+<h3 class="failures">testDeleteCategory_CategoryExists()</h3>
+<span class="code">
+<pre>java.lang.AssertionError: expectation &quot;expectComplete&quot; failed (expected: onComplete(); actual: onError(java.lang.Exception: Category not found))
+	at reactor.test.MessageFormatter.assertionError(MessageFormatter.java:115)
+	at reactor.test.MessageFormatter.failPrefix(MessageFormatter.java:104)
+	at reactor.test.MessageFormatter.fail(MessageFormatter.java:73)
+	at reactor.test.MessageFormatter.failOptional(MessageFormatter.java:88)
+	at reactor.test.DefaultStepVerifierBuilder.lambda$expectComplete$4(DefaultStepVerifierBuilder.java:344)
+	at reactor.test.DefaultStepVerifierBuilder$SignalEvent.test(DefaultStepVerifierBuilder.java:2289)
+	at reactor.test.DefaultStepVerifierBuilder$DefaultVerifySubscriber.onSignal(DefaultStepVerifierBuilder.java:1529)
+	at reactor.test.DefaultStepVerifierBuilder$DefaultVerifySubscriber.onExpectation(DefaultStepVerifierBuilder.java:1477)
+	at reactor.test.DefaultStepVerifierBuilder$DefaultVerifySubscriber.onError(DefaultStepVerifierBuilder.java:1129)
+	at reactor.core.publisher.Operators$MultiSubscriptionSubscriber.onError(Operators.java:2236)
+	at reactor.core.publisher.Operators.error(Operators.java:198)
+	at reactor.core.publisher.MonoError.subscribe(MonoError.java:53)
+	at reactor.core.publisher.Mono.subscribe(Mono.java:4576)
+	at reactor.core.publisher.FluxSwitchIfEmpty$SwitchIfEmptySubscriber.onComplete(FluxSwitchIfEmpty.java:82)
+	at reactor.core.publisher.FluxHide$SuppressFuseableSubscriber.onComplete(FluxHide.java:147)
+	at reactor.core.publisher.MonoIgnoreElements$IgnoreElementsSubscriber.onComplete(MonoIgnoreElements.java:89)
+	at reactor.core.publisher.MonoIgnoreElements$IgnoreElementsSubscriber.onComplete(MonoIgnoreElements.java:89)
+	at reactor.core.publisher.Operators.complete(Operators.java:137)
+	at reactor.core.publisher.MonoEmpty.subscribe(MonoEmpty.java:46)
+	at reactor.core.publisher.Mono.subscribe(Mono.java:4576)
+	at reactor.core.publisher.MonoIgnorePublisher.subscribe(MonoIgnorePublisher.java:57)
+	at reactor.core.publisher.Mono.subscribe(Mono.java:4576)
+	at reactor.core.publisher.FluxFlatMap.trySubscribeScalarMap(FluxFlatMap.java:205)
+	at reactor.core.publisher.MonoFlatMap.subscribeOrReturn(MonoFlatMap.java:53)
+	at reactor.core.publisher.Mono.subscribe(Mono.java:4560)
+	at reactor.test.DefaultStepVerifierBuilder$DefaultStepVerifier.toVerifierAndSubscribe(DefaultStepVerifierBuilder.java:891)
+	at reactor.test.DefaultStepVerifierBuilder$DefaultStepVerifier.verify(DefaultStepVerifierBuilder.java:831)
+	at reactor.test.DefaultStepVerifierBuilder$DefaultStepVerifier.verify(DefaultStepVerifierBuilder.java:823)
+	at reactor.test.DefaultStepVerifierBuilder.verifyComplete(DefaultStepVerifierBuilder.java:690)
+	at com.pibbletv.category_service.unit.CategoryServiceImplTest.testDeleteCategory_CategoryExists(CategoryServiceImplTest.java:141)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	Suppressed: java.lang.Exception: Category not found
+		at com.pibbletv.category_service.business.implementations.CategoryServiceImpl.deleteCategory(CategoryServiceImpl.java:55)
+		at com.pibbletv.category_service.unit.CategoryServiceImplTest.testDeleteCategory_CategoryExists(CategoryServiceImplTest.java:140)
+		... 3 more
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="testUpdateCategory_SaveFails()"></a>
+<h3 class="failures">testUpdateCategory_SaveFails()</h3>
+<span class="code">
+<pre>java.lang.IllegalArgumentException: Last unit does not have enough valid bits
+	at java.base/java.util.Base64$Decoder.decode0(Base64.java:868)
+	at java.base/java.util.Base64$Decoder.decode(Base64.java:566)
+	at java.base/java.util.Base64$Decoder.decode(Base64.java:589)
+	at com.pibbletv.category_service.business.converters.CategoryConverter.convertToEntity(CategoryConverter.java:31)
+	at com.pibbletv.category_service.business.implementations.CategoryServiceImpl.updateCategory(CategoryServiceImpl.java:47)
+	at com.pibbletv.category_service.unit.CategoryServiceImplTest.testUpdateCategory_SaveFails(CategoryServiceImplTest.java:127)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="testUpdateCategory_Success()"></a>
+<h3 class="failures">testUpdateCategory_Success()</h3>
+<span class="code">
+<pre>java.lang.IllegalArgumentException: Last unit does not have enough valid bits
+	at java.base/java.util.Base64$Decoder.decode0(Base64.java:868)
+	at java.base/java.util.Base64$Decoder.decode(Base64.java:566)
+	at java.base/java.util.Base64$Decoder.decode(Base64.java:589)
+	at com.pibbletv.category_service.business.converters.CategoryConverter.convertToEntity(CategoryConverter.java:31)
+	at com.pibbletv.category_service.business.implementations.CategoryServiceImpl.updateCategory(CategoryServiceImpl.java:47)
+	at com.pibbletv.category_service.unit.CategoryServiceImplTest.testUpdateCategory_Success(CategoryServiceImplTest.java:116)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+</pre>
+</span>
+</div>
+</div>
 <div class="tab">
 <h2>Tests</h2>
 <table>
@@ -75,14 +192,54 @@
 </tr>
 </thead>
 <tr>
+<td class="failures">testAddCategory_SaveFails()</td>
+<td class="failures">1.820s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures">testAddCategory_SuccessfullySaved()</td>
+<td class="failures">0.003s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures">testDeleteCategory_CategoryExists()</td>
+<td class="failures">0.017s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="success">testDeleteCategory_CategoryNotFound()</td>
+<td class="success">0.011s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
 <td class="success">testGetAllCategories_AllCategories_FetchedSuccessfully()</td>
-<td class="success">0.562s</td>
+<td class="success">0.594s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">testGetAllCategories_EmptyList()</td>
-<td class="success">0.006s</td>
+<td class="success">0.005s</td>
 <td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testGetCategoriesByKeyword_CategoriesFound()</td>
+<td class="success">0.005s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testGetCategoriesByKeyword_NoMatch()</td>
+<td class="success">0.013s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="failures">testUpdateCategory_SaveFails()</td>
+<td class="failures">0.009s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="failures">testUpdateCategory_Success()</td>
+<td class="failures">0.087s</td>
+<td class="failures">failed</td>
 </tr>
 </table>
 </div>
@@ -94,7 +251,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="https://www.gradle.org">Gradle 8.13</a> at Apr 26, 2025, 8:51:30 PM</p>
+<a href="https://www.gradle.org">Gradle 8.13</a> at May 9, 2025, 1:11:58 AM</p>
 </div>
 </div>
 </body>
