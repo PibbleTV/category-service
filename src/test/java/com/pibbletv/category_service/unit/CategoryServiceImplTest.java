@@ -10,6 +10,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -29,17 +30,13 @@ public class CategoryServiceImplTest {
 
     @Test
     void testGetAllCategories_AllCategories_FetchedSuccessfully() {
-        // Given
+
         CategoryEntity entity1 = new CategoryEntity(1L, "GTA V", new byte[]{0x1, 0x2, 0x3});
         CategoryEntity entity2 = new CategoryEntity(2L, "Fortnite", new byte[]{0x4, 0x5, 0x6});
 
         when(categoryRepository.findAll()).thenReturn(Flux.just(entity1, entity2));
 
-        // When
-        Flux<Category> result = categoryService.getAllCategories();
-
-        // Then
-        StepVerifier.create(result)
+        StepVerifier.create(categoryService.getAllCategories())
                 .assertNext(category -> {
                     assertNotNull(category);
                     assertEquals(1L, category.getId());
@@ -63,5 +60,101 @@ public class CategoryServiceImplTest {
                 .expectNextCount(0)
                 .verifyComplete();
     }
+
+    @Test
+    void testGetCategoriesByKeyword_CategoriesFound() {
+        CategoryEntity entity = new CategoryEntity(1L, "Call of Duty", new byte[]{0x1, 0x2, 0x3});
+        when(categoryRepository.findByKeyword("Call")).thenReturn(Flux.just(entity));
+
+        StepVerifier.create(categoryService.getCategoriesByKeyword("Call"))
+                .assertNext(category -> {
+                    assertEquals(1L, category.getId());
+                    assertEquals("Call of Duty", category.getName());
+                })
+                .verifyComplete();
+    }
+
+    @Test
+    void testGetCategoriesByKeyword_NoMatch() {
+        when(categoryRepository.findByKeyword("Unknown")).thenReturn(Flux.empty());
+
+        StepVerifier.create(categoryService.getCategoriesByKeyword("Unknown"))
+                .expectNextCount(0)
+                .verifyComplete();
+    }
+
+    @Test
+    void testAddCategory_SuccessfullySaved() {
+        Category category = new Category(3L, "Minecraft", "Image");
+        CategoryEntity entity = CategoryConverter.convertToEntity(category);
+
+        when(categoryRepository.save(entity)).thenReturn(Mono.empty());
+
+        StepVerifier.create(categoryService.addCategory(category))
+                .verifyComplete();
+    }
+
+    @Test
+    void testAddCategory_SaveFails() {
+        Category category = new Category(4L, "Broken Category", "Image");
+        CategoryEntity entity = CategoryConverter.convertToEntity(category);
+
+        when(categoryRepository.save(entity)).thenReturn(Mono.error(new RuntimeException("DB error")));
+
+        StepVerifier.create(categoryService.addCategory(category))
+                .expectErrorMessage("DB error")
+                .verify();
+    }
+
+    @Test
+    void testUpdateCategory_Success() {
+        Category category = new Category(5L, "Call of Duty: Black Ops III", "Image");
+        CategoryEntity entity = new CategoryEntity(5L, "Call of Duty: Black Ops 3", new byte[]{0x1, 0x2, 0x3});
+
+        when(categoryRepository.findById(5L)).thenReturn(Mono.just(entity));
+
+        StepVerifier.create(categoryService.updateCategory(category))
+                .verifyComplete();
+    }
+
+    @Test
+    void testUpdateCategory_SaveFails() {
+        Category category = new Category(6L, "Fail Game", "Image");
+        CategoryEntity entity = new CategoryEntity(6L, "Fail Game", new byte[]{0x1, 0x2, 0x3});
+
+        when(categoryRepository.save(entity)).thenReturn(Mono.error(new RuntimeException("Save failed")));
+
+        StepVerifier.create(categoryService.updateCategory(category))
+                .expectErrorMessage("Save failed")
+                .verify();
+    }
+
+    @Test
+    void testDeleteCategory_CategoryExists() {
+        Long id = 7L;
+        CategoryEntity entity = new CategoryEntity(id, "To Be Deleted", new byte[]{0x1});
+
+        when(categoryRepository.findById(id)).thenReturn(Mono.just(entity));
+        when(categoryRepository.delete(entity)).thenReturn(Mono.empty());
+
+        StepVerifier.create(categoryService.deleteCategory(id))
+                .verifyComplete();
+    }
+
+    @Test
+    void testDeleteCategory_CategoryNotFound() {
+        Long id = 8L;
+
+        when(categoryRepository.findById(id)).thenReturn(Mono.empty());
+
+        StepVerifier.create(categoryService.deleteCategory(id))
+                .expectErrorMatches(throwable ->
+                        throwable instanceof Exception &&
+                                throwable.getMessage().equals("Category not found"))
+                .verify();
+    }
+
+
+
 }
 
