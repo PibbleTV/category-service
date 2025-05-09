@@ -1,49 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.pibbletv.category_service.unit.CategoryServiceImplTest" tests="10" skipped="0" failures="5" errors="0" timestamp="2025-05-08T23:11:56.240Z" hostname="DESKTOP-NS6POVE" time="2.572">
+<testsuite name="com.pibbletv.category_service.unit.CategoryServiceImplTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2025-05-09T00:06:36.969Z" hostname="DESKTOP-NS6POVE" time="2.197">
   <properties/>
-  <testcase name="testAddCategory_SaveFails()" classname="com.pibbletv.category_service.unit.CategoryServiceImplTest" time="1.82">
-    <failure message="java.lang.IllegalArgumentException: Last unit does not have enough valid bits" type="java.lang.IllegalArgumentException">java.lang.IllegalArgumentException: Last unit does not have enough valid bits
-	at java.base/java.util.Base64$Decoder.decode0(Base64.java:868)
-	at java.base/java.util.Base64$Decoder.decode(Base64.java:566)
-	at java.base/java.util.Base64$Decoder.decode(Base64.java:589)
-	at com.pibbletv.category_service.business.converters.CategoryConverter.convertToEntity(CategoryConverter.java:31)
-	at com.pibbletv.category_service.unit.CategoryServiceImplTest.testAddCategory_SaveFails(CategoryServiceImplTest.java:100)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-</failure>
-  </testcase>
-  <testcase name="testGetAllCategories_AllCategories_FetchedSuccessfully()" classname="com.pibbletv.category_service.unit.CategoryServiceImplTest" time="0.594"/>
-  <testcase name="testGetCategoriesByKeyword_NoMatch()" classname="com.pibbletv.category_service.unit.CategoryServiceImplTest" time="0.013"/>
-  <testcase name="testGetAllCategories_EmptyList()" classname="com.pibbletv.category_service.unit.CategoryServiceImplTest" time="0.005"/>
-  <testcase name="testUpdateCategory_Success()" classname="com.pibbletv.category_service.unit.CategoryServiceImplTest" time="0.087">
-    <failure message="java.lang.IllegalArgumentException: Last unit does not have enough valid bits" type="java.lang.IllegalArgumentException">java.lang.IllegalArgumentException: Last unit does not have enough valid bits
-	at java.base/java.util.Base64$Decoder.decode0(Base64.java:868)
-	at java.base/java.util.Base64$Decoder.decode(Base64.java:566)
-	at java.base/java.util.Base64$Decoder.decode(Base64.java:589)
-	at com.pibbletv.category_service.business.converters.CategoryConverter.convertToEntity(CategoryConverter.java:31)
-	at com.pibbletv.category_service.business.implementations.CategoryServiceImpl.updateCategory(CategoryServiceImpl.java:47)
-	at com.pibbletv.category_service.unit.CategoryServiceImplTest.testUpdateCategory_Success(CategoryServiceImplTest.java:116)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-</failure>
-  </testcase>
-  <testcase name="testUpdateCategory_SaveFails()" classname="com.pibbletv.category_service.unit.CategoryServiceImplTest" time="0.009">
-    <failure message="java.lang.IllegalArgumentException: Last unit does not have enough valid bits" type="java.lang.IllegalArgumentException">java.lang.IllegalArgumentException: Last unit does not have enough valid bits
-	at java.base/java.util.Base64$Decoder.decode0(Base64.java:868)
-	at java.base/java.util.Base64$Decoder.decode(Base64.java:566)
-	at java.base/java.util.Base64$Decoder.decode(Base64.java:589)
-	at com.pibbletv.category_service.business.converters.CategoryConverter.convertToEntity(CategoryConverter.java:31)
-	at com.pibbletv.category_service.business.implementations.CategoryServiceImpl.updateCategory(CategoryServiceImpl.java:47)
-	at com.pibbletv.category_service.unit.CategoryServiceImplTest.testUpdateCategory_SaveFails(CategoryServiceImplTest.java:127)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-</failure>
-  </testcase>
-  <testcase name="testDeleteCategory_CategoryNotFound()" classname="com.pibbletv.category_service.unit.CategoryServiceImplTest" time="0.011"/>
-  <testcase name="testDeleteCategory_CategoryExists()" classname="com.pibbletv.category_service.unit.CategoryServiceImplTest" time="0.017">
+  <testcase name="testDeleteCategory_CategoryDeletedSuccessfully()" classname="com.pibbletv.category_service.unit.CategoryServiceImplTest" time="2.197">
     <failure message="java.lang.AssertionError: expectation &quot;expectComplete&quot; failed (expected: onComplete(); actual: onError(java.lang.Exception: Category not found))" type="java.lang.AssertionError">java.lang.AssertionError: expectation &quot;expectComplete&quot; failed (expected: onComplete(); actual: onError(java.lang.Exception: Category not found))
 	at reactor.test.MessageFormatter.assertionError(MessageFormatter.java:115)
 	at reactor.test.MessageFormatter.failPrefix(MessageFormatter.java:104)
@@ -74,29 +32,16 @@
 	at reactor.test.DefaultStepVerifierBuilder$DefaultStepVerifier.verify(DefaultStepVerifierBuilder.java:831)
 	at reactor.test.DefaultStepVerifierBuilder$DefaultStepVerifier.verify(DefaultStepVerifierBuilder.java:823)
 	at reactor.test.DefaultStepVerifierBuilder.verifyComplete(DefaultStepVerifierBuilder.java:690)
-	at com.pibbletv.category_service.unit.CategoryServiceImplTest.testDeleteCategory_CategoryExists(CategoryServiceImplTest.java:141)
+	at com.pibbletv.category_service.unit.CategoryServiceImplTest.testDeleteCategory_CategoryDeletedSuccessfully(CategoryServiceImplTest.java:143)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	Suppressed: java.lang.Exception: Category not found
 		at com.pibbletv.category_service.business.implementations.CategoryServiceImpl.deleteCategory(CategoryServiceImpl.java:55)
-		at com.pibbletv.category_service.unit.CategoryServiceImplTest.testDeleteCategory_CategoryExists(CategoryServiceImplTest.java:140)
+		at com.pibbletv.category_service.unit.CategoryServiceImplTest.testDeleteCategory_CategoryDeletedSuccessfully(CategoryServiceImplTest.java:142)
 		... 3 more
 </failure>
   </testcase>
-  <testcase name="testAddCategory_SuccessfullySaved()" classname="com.pibbletv.category_service.unit.CategoryServiceImplTest" time="0.003">
-    <failure message="java.lang.IllegalArgumentException: Last unit does not have enough valid bits" type="java.lang.IllegalArgumentException">java.lang.IllegalArgumentException: Last unit does not have enough valid bits
-	at java.base/java.util.Base64$Decoder.decode0(Base64.java:868)
-	at java.base/java.util.Base64$Decoder.decode(Base64.java:566)
-	at java.base/java.util.Base64$Decoder.decode(Base64.java:589)
-	at com.pibbletv.category_service.business.converters.CategoryConverter.convertToEntity(CategoryConverter.java:31)
-	at com.pibbletv.category_service.unit.CategoryServiceImplTest.testAddCategory_SuccessfullySaved(CategoryServiceImplTest.java:89)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-</failure>
-  </testcase>
-  <testcase name="testGetCategoriesByKeyword_CategoriesFound()" classname="com.pibbletv.category_service.unit.CategoryServiceImplTest" time="0.005"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

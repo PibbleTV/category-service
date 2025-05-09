@@ -21,8 +21,8 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public Flux&lt;Category&gt; getAllCategories() {
-<span class="fc" id="L24">        return categoryRepository.findAll()</span>
-<span class="fc" id="L25">                .map(CategoryConverter::convertToObject);</span>
+<span class="nc" id="L24">        return categoryRepository.findAll()</span>
+<span class="nc" id="L25">                .map(CategoryConverter::convertToObject);</span>
     }
 
     @Override
@@ -44,9 +44,9 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public Mono&lt;Void&gt; updateCategory(Category category) {
 
-<span class="nc" id="L47">        CategoryEntity categoryEntity = CategoryConverter.convertToEntity(category);</span>
-<span class="nc" id="L48">        return categoryRepository.save(categoryEntity)</span>
-<span class="nc" id="L49">                .then();</span>
+<span class="fc" id="L47">        CategoryEntity categoryEntity = CategoryConverter.convertToEntity(category);</span>
+<span class="fc" id="L48">        return categoryRepository.save(categoryEntity)</span>
+<span class="fc" id="L49">                .then();</span>
     }
 
     @Override
