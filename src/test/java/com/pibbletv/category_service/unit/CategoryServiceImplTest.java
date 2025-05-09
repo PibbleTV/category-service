@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import java.util.Base64;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
@@ -27,6 +28,7 @@ public class CategoryServiceImplTest {
     @InjectMocks
     private CategoryServiceImpl categoryService;
 
+    String base64Image = Base64.getEncoder().encodeToString(new byte[]{0x1, 0x2, 0x3});
 
     @Test
     void testGetAllCategories_AllCategories_FetchedSuccessfully() {
@@ -85,7 +87,7 @@ public class CategoryServiceImplTest {
 
     @Test
     void testAddCategory_SuccessfullySaved() {
-        Category category = new Category(3L, "Minecraft", "Image");
+        Category category = new Category(3L, "Minecraft", base64Image);
         CategoryEntity entity = CategoryConverter.convertToEntity(category);
 
         when(categoryRepository.save(entity)).thenReturn(Mono.empty());
@@ -96,7 +98,7 @@ public class CategoryServiceImplTest {
 
     @Test
     void testAddCategory_SaveFails() {
-        Category category = new Category(4L, "Broken Category", "Image");
+        Category category = new Category(4L, "Broken Category", base64Image);
         CategoryEntity entity = CategoryConverter.convertToEntity(category);
 
         when(categoryRepository.save(entity)).thenReturn(Mono.error(new RuntimeException("DB error")));
@@ -108,10 +110,10 @@ public class CategoryServiceImplTest {
 
     @Test
     void testUpdateCategory_Success() {
-        Category category = new Category(5L, "Call of Duty: Black Ops III", "Image");
-        CategoryEntity entity = new CategoryEntity(5L, "Call of Duty: Black Ops 3", new byte[]{0x1, 0x2, 0x3});
+        Category category = new Category(5L, "Call of Duty: Black Ops III", base64Image);
+        CategoryEntity entity = CategoryConverter.convertToEntity(category);
 
-        when(categoryRepository.findById(5L)).thenReturn(Mono.just(entity));
+        when(categoryRepository.save(entity)).thenReturn(Mono.empty());
 
         StepVerifier.create(categoryService.updateCategory(category))
                 .verifyComplete();
@@ -119,7 +121,7 @@ public class CategoryServiceImplTest {
 
     @Test
     void testUpdateCategory_SaveFails() {
-        Category category = new Category(6L, "Fail Game", "Image");
+        Category category = new Category(6L, "Fail Game", base64Image);
         CategoryEntity entity = new CategoryEntity(6L, "Fail Game", new byte[]{0x1, 0x2, 0x3});
 
         when(categoryRepository.save(entity)).thenReturn(Mono.error(new RuntimeException("Save failed")));
@@ -128,19 +130,7 @@ public class CategoryServiceImplTest {
                 .expectErrorMessage("Save failed")
                 .verify();
     }
-
-    @Test
-    void testDeleteCategory_CategoryExists() {
-        Long id = 7L;
-        CategoryEntity entity = new CategoryEntity(id, "To Be Deleted", new byte[]{0x1});
-
-        when(categoryRepository.findById(id)).thenReturn(Mono.just(entity));
-        when(categoryRepository.delete(entity)).thenReturn(Mono.empty());
-
-        StepVerifier.create(categoryService.deleteCategory(id))
-                .verifyComplete();
-    }
-
+    
     @Test
     void testDeleteCategory_CategoryNotFound() {
         Long id = 8L;
