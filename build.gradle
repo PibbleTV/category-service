@@ -85,3 +85,7 @@ test {
 tasks.named('test') {
     useJUnitPlatform()
 }
+
+tasks.withType(Test) {
+    systemProperty 'eureka.client.enabled', 'false'
+}
