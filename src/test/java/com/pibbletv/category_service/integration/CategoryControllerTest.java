@@ -13,6 +13,7 @@ import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWeb
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import org.springframework.web.reactive.function.BodyInserters;
 import reactor.core.publisher.Flux;
@@ -86,6 +87,7 @@ public class CategoryControllerTest {
     }
 
     @Test
+    @WithMockUser(roles = "admin")
     void addCategory_shouldReturnStatusCreated_whenCategoryIsAdded() {
 
         Category category = new Category(null, "Movies", base64Image);
@@ -104,6 +106,7 @@ public class CategoryControllerTest {
     }
 
     @Test
+    @WithMockUser(roles = "admin")
     void updateCategory_shouldReturnStatusOk_whenCategoryIsUpdated() {
 
         Category category = new Category(1L, "Gaming", base64Image);
@@ -121,6 +124,7 @@ public class CategoryControllerTest {
     }
 
     @Test
+    @WithMockUser(roles = "admin")
     void deleteCategory_shouldReturnStatusOk_whenCategoryIsDeleted() {
 
         Long categoryId = 1L;
@@ -181,6 +185,7 @@ public class CategoryControllerTest {
     }
 
 //    @Test
+//    @WithMockUser(roles = "admin")
 //    void addCategory_shouldReturnBadRequest_whenCategoryIsInvalid() {
 //
 //        Category invalidCategory = new Category(null, "", base64Image);
@@ -197,6 +202,7 @@ public class CategoryControllerTest {
 //    }
 //
 //    @Test
+//    @WithMockUser(roles = "admin")
 //    void updateCategory_shouldReturnBadRequest_whenCategoryDoesNotExist() {
 //
 //        Category category = new Category(999L, "Nonexistent Category", base64Image);
@@ -214,6 +220,7 @@ public class CategoryControllerTest {
 //    }
 //
 //    @Test
+//    @WithMockUser(roles = "admin")
 //    void deleteCategory_shouldReturnNotFound_whenCategoryDoesNotExist() {
 //
 //        Long categoryId = 999L;
