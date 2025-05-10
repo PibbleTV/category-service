@@ -23,13 +23,13 @@ public final class CategoryConverter {
     }
 
     public static CategoryEntity convertToEntity(Category category) {
-<span class="pc bpc" id="L26" title="1 of 2 branches missed.">        if (category == null) return null;</span>
+<span class="nc bnc" id="L26" title="All 2 branches missed.">        if (category == null) return null;</span>
 
-<span class="fc" id="L28">        return CategoryEntity.builder()</span>
-<span class="fc" id="L29">                .id(category.getId())</span>
-<span class="fc" id="L30">                .name(category.getName())</span>
-<span class="pc bpc" id="L31" title="1 of 2 branches missed.">                .image(category.getImage() != null ? Base64.getDecoder().decode(category.getImage()) : null)</span>
-<span class="fc" id="L32">                .build();</span>
+<span class="nc" id="L28">        return CategoryEntity.builder()</span>
+<span class="nc" id="L29">                .id(category.getId())</span>
+<span class="nc" id="L30">                .name(category.getName())</span>
+<span class="nc bnc" id="L31" title="All 2 branches missed.">                .image(category.getImage() != null ? Base64.getDecoder().decode(category.getImage()) : null)</span>
+<span class="nc" id="L32">                .build();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
