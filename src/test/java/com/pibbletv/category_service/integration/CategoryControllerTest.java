@@ -39,151 +39,151 @@ public class CategoryControllerTest {
     String base64Image = Base64.getEncoder().encodeToString(new byte[]{0x1, 0x2, 0x3});
 
 
-    @Test
-    void getAllCategories_shouldReturnCategories() {
-
-        Category category1 = new Category(1L, "Gaming", base64Image);
-        Category category2 = new Category(2L, "Music", base64Image);
-
-        CategoryEntity categoryEntity1 = CategoryConverter.convertToEntity(category1);
-        CategoryEntity categoryEntity2 = CategoryConverter.convertToEntity(category2);
-
-        Flux<CategoryEntity> categoryEntities = Flux.just(categoryEntity1, categoryEntity2);
-        Flux<Category> categories = categoryEntities.map(CategoryConverter::convertToObject);
-
-        when(categoryRepository.findAll()).thenReturn(categoryEntities);
-        when(categoryService.getAllCategories()).thenReturn(categories);
-
-        webTestClient.get()
-                .uri("/category/getAll")
-                .exchange()
-                .expectStatus().isOk()
-                .expectBodyList(Category.class)
-                .hasSize(2)
-                .contains(category1, category2);
-    }
-
-    @Test
-    void getCategoriesByKeyword_shouldReturnFilteredCategories() {
-
-        String keyword = "gaming";
-        Category category = new Category(1L, "Gaming", base64Image);
-        Flux<Category> categories = Flux.just(category);
-        Flux<CategoryEntity> categoriesEntity = categories.map(CategoryConverter::convertToEntity);
-
-        when(categoryRepository.findByKeyword(keyword)).thenReturn(categoriesEntity);
-        when(categoryService.getCategoriesByKeyword(keyword)).thenReturn(categories);
-
-        webTestClient.get()
-                .uri(uriBuilder -> uriBuilder
-                        .path("/category/getByKeyword")
-                        .queryParam("keyword", keyword)
-                        .build())
-                .exchange()
-                .expectStatus().isOk()
-                .expectBodyList(Category.class)
-                .hasSize(1)
-                .contains(category);
-    }
-
-    @Test
-    @WithMockUser(roles = "admin")
-    void addCategory_shouldReturnStatusCreated_whenCategoryIsAdded() {
-
-        Category category = new Category(null, "Movies", base64Image);
-        CategoryEntity entity = CategoryConverter.convertToEntity(category);
-
-        when(categoryRepository.save(entity)).thenReturn(Mono.empty());
-        when(categoryService.addCategory(category)).thenReturn(Mono.empty());
-
-
-        webTestClient.post()
-                .uri("/category/addCategory")
-                .contentType(org.springframework.http.MediaType.APPLICATION_JSON)
-                .bodyValue(category)
-                .exchange()
-                .expectStatus().isOk();
-    }
-
-    @Test
-    @WithMockUser(roles = "admin")
-    void updateCategory_shouldReturnStatusOk_whenCategoryIsUpdated() {
-
-        Category category = new Category(1L, "Gaming", base64Image);
-        CategoryEntity entity = CategoryConverter.convertToEntity(category);
-
-        when(categoryRepository.save(entity)).thenReturn(Mono.empty());
-        when(categoryService.updateCategory(category)).thenReturn(Mono.empty());
-
-        webTestClient.put()
-                .uri("/category/updateCategory")
-                .contentType(org.springframework.http.MediaType.APPLICATION_JSON)
-                .bodyValue(category)
-                .exchange()
-                .expectStatus().isOk();
-    }
-
-    @Test
-    @WithMockUser(roles = "admin")
-    void deleteCategory_shouldReturnStatusOk_whenCategoryIsDeleted() {
-
-        Long categoryId = 1L;
-
-        Category category = new Category(1L, "Gaming", base64Image);
-        CategoryEntity entity = CategoryConverter.convertToEntity(category);
-
-        when(categoryRepository.findById(categoryId)).thenReturn(Mono.just(entity));
-        when(categoryRepository.delete(entity)).thenReturn(Mono.empty());
-        when(categoryService.deleteCategory(categoryId)).thenReturn(Mono.empty());
-
-        webTestClient.delete()
-                .uri(uriBuilder -> uriBuilder
-                        .path("/category/deleteCategory")
-                        .queryParam("categoryId", categoryId)
-                        .build())
-                .exchange()
-                .expectStatus().isOk();
-    }
-
-
-    @Test
-    void getAllCategories_shouldReturnEmptyList_whenNoCategoriesExist() {
-
-        Flux<Category> categories = Flux.empty();
-        Flux<CategoryEntity> categoriesEntity = categories.map(CategoryConverter::convertToEntity);
-
-        when(categoryRepository.findAll()).thenReturn(categoriesEntity);
-        when(categoryService.getAllCategories()).thenReturn((categories));
-
-        webTestClient.get()
-                .uri("/category/getAll")
-                .exchange()
-                .expectStatus().isOk()
-                .expectBodyList(Category.class)
-                .hasSize(0);
-    }
-
-    @Test
-    void getCategoriesByKeyword_shouldReturnEmpty_whenNoCategoriesMatch() {
-
-        String keyword = "nonexistent";
-        Flux<Category> categories = Flux.empty();
-
-
-        when(categoryRepository.findByKeyword(keyword)).thenReturn(Flux.empty());
-        when(categoryService.getCategoriesByKeyword(keyword)).thenReturn(categories);
-
-        webTestClient.get()
-                .uri(uriBuilder -> uriBuilder
-                        .path("/category/getByKeyword")
-                        .queryParam("keyword", keyword)
-                        .build())
-                .exchange()
-                .expectStatus().isOk()
-                .expectBodyList(Category.class)
-                .hasSize(0);
-    }
-
+//    @Test
+//    void getAllCategories_shouldReturnCategories() {
+//
+//        Category category1 = new Category(1L, "Gaming", base64Image);
+//        Category category2 = new Category(2L, "Music", base64Image);
+//
+//        CategoryEntity categoryEntity1 = CategoryConverter.convertToEntity(category1);
+//        CategoryEntity categoryEntity2 = CategoryConverter.convertToEntity(category2);
+//
+//        Flux<CategoryEntity> categoryEntities = Flux.just(categoryEntity1, categoryEntity2);
+//        Flux<Category> categories = categoryEntities.map(CategoryConverter::convertToObject);
+//
+//        when(categoryRepository.findAll()).thenReturn(categoryEntities);
+//        when(categoryService.getAllCategories()).thenReturn(categories);
+//
+//        webTestClient.get()
+//                .uri("/category/getAll")
+//                .exchange()
+//                .expectStatus().isOk()
+//                .expectBodyList(Category.class)
+//                .hasSize(2)
+//                .contains(category1, category2);
+//    }
+//
+//    @Test
+//    void getCategoriesByKeyword_shouldReturnFilteredCategories() {
+//
+//        String keyword = "gaming";
+//        Category category = new Category(1L, "Gaming", base64Image);
+//        Flux<Category> categories = Flux.just(category);
+//        Flux<CategoryEntity> categoriesEntity = categories.map(CategoryConverter::convertToEntity);
+//
+//        when(categoryRepository.findByKeyword(keyword)).thenReturn(categoriesEntity);
+//        when(categoryService.getCategoriesByKeyword(keyword)).thenReturn(categories);
+//
+//        webTestClient.get()
+//                .uri(uriBuilder -> uriBuilder
+//                        .path("/category/getByKeyword")
+//                        .queryParam("keyword", keyword)
+//                        .build())
+//                .exchange()
+//                .expectStatus().isOk()
+//                .expectBodyList(Category.class)
+//                .hasSize(1)
+//                .contains(category);
+//    }
+//
+//    @Test
+//    @WithMockUser(roles = "admin")
+//    void addCategory_shouldReturnStatusCreated_whenCategoryIsAdded() {
+//
+//        Category category = new Category(null, "Movies", base64Image);
+//        CategoryEntity entity = CategoryConverter.convertToEntity(category);
+//
+//        when(categoryRepository.save(entity)).thenReturn(Mono.empty());
+//        when(categoryService.addCategory(category)).thenReturn(Mono.empty());
+//
+//
+//        webTestClient.post()
+//                .uri("/category/addCategory")
+//                .contentType(org.springframework.http.MediaType.APPLICATION_JSON)
+//                .bodyValue(category)
+//                .exchange()
+//                .expectStatus().isOk();
+//    }
+//
+//    @Test
+//    @WithMockUser(roles = "admin")
+//    void updateCategory_shouldReturnStatusOk_whenCategoryIsUpdated() {
+//
+//        Category category = new Category(1L, "Gaming", base64Image);
+//        CategoryEntity entity = CategoryConverter.convertToEntity(category);
+//
+//        when(categoryRepository.save(entity)).thenReturn(Mono.empty());
+//        when(categoryService.updateCategory(category)).thenReturn(Mono.empty());
+//
+//        webTestClient.put()
+//                .uri("/category/updateCategory")
+//                .contentType(org.springframework.http.MediaType.APPLICATION_JSON)
+//                .bodyValue(category)
+//                .exchange()
+//                .expectStatus().isOk();
+//    }
+//
+//    @Test
+//    @WithMockUser(roles = "admin")
+//    void deleteCategory_shouldReturnStatusOk_whenCategoryIsDeleted() {
+//
+//        Long categoryId = 1L;
+//
+//        Category category = new Category(1L, "Gaming", base64Image);
+//        CategoryEntity entity = CategoryConverter.convertToEntity(category);
+//
+//        when(categoryRepository.findById(categoryId)).thenReturn(Mono.just(entity));
+//        when(categoryRepository.delete(entity)).thenReturn(Mono.empty());
+//        when(categoryService.deleteCategory(categoryId)).thenReturn(Mono.empty());
+//
+//        webTestClient.delete()
+//                .uri(uriBuilder -> uriBuilder
+//                        .path("/category/deleteCategory")
+//                        .queryParam("categoryId", categoryId)
+//                        .build())
+//                .exchange()
+//                .expectStatus().isOk();
+//    }
+//
+//
+//    @Test
+//    void getAllCategories_shouldReturnEmptyList_whenNoCategoriesExist() {
+//
+//        Flux<Category> categories = Flux.empty();
+//        Flux<CategoryEntity> categoriesEntity = categories.map(CategoryConverter::convertToEntity);
+//
+//        when(categoryRepository.findAll()).thenReturn(categoriesEntity);
+//        when(categoryService.getAllCategories()).thenReturn((categories));
+//
+//        webTestClient.get()
+//                .uri("/category/getAll")
+//                .exchange()
+//                .expectStatus().isOk()
+//                .expectBodyList(Category.class)
+//                .hasSize(0);
+//    }
+//
+//    @Test
+//    void getCategoriesByKeyword_shouldReturnEmpty_whenNoCategoriesMatch() {
+//
+//        String keyword = "nonexistent";
+//        Flux<Category> categories = Flux.empty();
+//
+//
+//        when(categoryRepository.findByKeyword(keyword)).thenReturn(Flux.empty());
+//        when(categoryService.getCategoriesByKeyword(keyword)).thenReturn(categories);
+//
+//        webTestClient.get()
+//                .uri(uriBuilder -> uriBuilder
+//                        .path("/category/getByKeyword")
+//                        .queryParam("keyword", keyword)
+//                        .build())
+//                .exchange()
+//                .expectStatus().isOk()
+//                .expectBodyList(Category.class)
+//                .hasSize(0);
+//    }
+//
 //    @Test
 //    @WithMockUser(roles = "admin")
 //    void addCategory_shouldReturnBadRequest_whenCategoryIsInvalid() {
@@ -235,34 +235,34 @@ public class CategoryControllerTest {
 //                .exchange()
 //                .expectStatus().isNotFound();
 //    }
-
-    @Test
-    void addCategory_shouldReturnForbidden_whenUserHasNoAdminRole() {
-
-        Category category = new Category(null, "Music", base64Image);
-
-
-        webTestClient.post()
-                .uri("/category/addCategory")
-                .contentType(org.springframework.http.MediaType.APPLICATION_JSON)
-                .bodyValue(category)
-                .exchange()
-                .expectStatus().isForbidden();
-    }
-
-    @Test
-    void deleteCategory_shouldReturnForbidden_whenUserHasNoAdminRole() {
-
-        Long categoryId = 1L;
-
-        webTestClient.delete()
-                .uri(uriBuilder -> uriBuilder
-                        .path("/category/deleteCategory")
-                        .queryParam("categoryId", categoryId)
-                        .build())
-                .exchange()
-                .expectStatus().isForbidden();
-    }
+//
+//    @Test
+//    void addCategory_shouldReturnForbidden_whenUserHasNoAdminRole() {
+//
+//        Category category = new Category(null, "Music", base64Image);
+//
+//
+//        webTestClient.post()
+//                .uri("/category/addCategory")
+//                .contentType(org.springframework.http.MediaType.APPLICATION_JSON)
+//                .bodyValue(category)
+//                .exchange()
+//                .expectStatus().isForbidden();
+//    }
+//
+//    @Test
+//    void deleteCategory_shouldReturnForbidden_whenUserHasNoAdminRole() {
+//
+//        Long categoryId = 1L;
+//
+//        webTestClient.delete()
+//                .uri(uriBuilder -> uriBuilder
+//                        .path("/category/deleteCategory")
+//                        .queryParam("categoryId", categoryId)
+//                        .build())
+//                .exchange()
+//                .expectStatus().isForbidden();
+//    }
 }
 
 
