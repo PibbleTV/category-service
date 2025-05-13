@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.pibbletv.category_service.unit.CategoryServiceImplTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2025-05-13T15:37:05.220Z" hostname="DESKTOP-NS6POVE" time="0.664">
+  <properties/>
+  <testcase name="testAddCategory_SaveFails()" classname="com.pibbletv.category_service.unit.CategoryServiceImplTest" time="0.599"/>
+  <testcase name="testGetAllCategories_AllCategories_FetchedSuccessfully()" classname="com.pibbletv.category_service.unit.CategoryServiceImplTest" time="0.031"/>
+  <testcase name="testGetCategoriesByKeyword_NoMatch()" classname="com.pibbletv.category_service.unit.CategoryServiceImplTest" time="0.004"/>
+  <testcase name="testGetAllCategories_EmptyList()" classname="com.pibbletv.category_service.unit.CategoryServiceImplTest" time="0.003"/>
+  <testcase name="testUpdateCategory_Success()" classname="com.pibbletv.category_service.unit.CategoryServiceImplTest" time="0.003"/>
+  <testcase name="testUpdateCategory_SaveFails()" classname="com.pibbletv.category_service.unit.CategoryServiceImplTest" time="0.003"/>
+  <testcase name="testDeleteCategory_CategoryNotFound()" classname="com.pibbletv.category_service.unit.CategoryServiceImplTest" time="0.008"/>
+  <testcase name="testAddCategory_SuccessfullySaved()" classname="com.pibbletv.category_service.unit.CategoryServiceImplTest" time="0.003"/>
+  <testcase name="testGetCategoriesByKeyword_CategoriesFound()" classname="com.pibbletv.category_service.unit.CategoryServiceImplTest" time="0.005"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
