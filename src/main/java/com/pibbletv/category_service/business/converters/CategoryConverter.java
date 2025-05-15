@@ -17,6 +17,7 @@ public final class CategoryConverter {
 
         return Category.builder()
                 .id(entity.getId())
+                .categoryId(entity.getCategoryId())
                 .name(entity.getName())
                 .image(entity.getImage() != null ? Base64.getEncoder().encodeToString(entity.getImage()) : null)
                 .build();
@@ -27,6 +28,7 @@ public final class CategoryConverter {
 
         return CategoryEntity.builder()
                 .id(category.getId())
+                .categoryId(category.getCategoryId())
                 .name(category.getName())
                 .image(category.getImage() != null ? Base64.getDecoder().decode(category.getImage()) : null)
                 .build();

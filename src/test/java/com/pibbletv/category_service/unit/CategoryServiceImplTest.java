@@ -10,6 +10,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import java.util.Base64;
+import java.util.UUID;
+
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
@@ -30,11 +32,15 @@ public class CategoryServiceImplTest {
 
     String base64Image = Base64.getEncoder().encodeToString(new byte[]{0x1, 0x2, 0x3});
 
+    UUID uuid = UUID.randomUUID();
+    UUID uuid1 = UUID.randomUUID();
+    UUID uuid2 = UUID.randomUUID();
+
     @Test
     void testGetAllCategories_AllCategories_FetchedSuccessfully() {
 
-        CategoryEntity entity1 = new CategoryEntity(1L, "GTA V", new byte[]{0x1, 0x2, 0x3});
-        CategoryEntity entity2 = new CategoryEntity(2L, "Fortnite", new byte[]{0x4, 0x5, 0x6});
+        CategoryEntity entity1 = new CategoryEntity(1L, uuid1, "GTA V", new byte[]{0x1, 0x2, 0x3});
+        CategoryEntity entity2 = new CategoryEntity(2L, uuid2, "Fortnite", new byte[]{0x4, 0x5, 0x6});
 
         when(categoryRepository.findAll()).thenReturn(Flux.just(entity1, entity2));
 
@@ -42,12 +48,14 @@ public class CategoryServiceImplTest {
                 .assertNext(category -> {
                     assertNotNull(category);
                     assertEquals(1L, category.getId());
+                    assertEquals(uuid1, category.getCategoryId());
                     assertEquals("GTA V", category.getName());
                     assertNotNull(category.getImage());
                 })
                 .assertNext(category -> {
                     assertNotNull(category);
                     assertEquals(2L, category.getId());
+                    assertEquals(uuid2, category.getCategoryId());
                     assertEquals("Fortnite", category.getName());
                     assertNotNull(category.getImage());
                 })
@@ -65,12 +73,14 @@ public class CategoryServiceImplTest {
 
     @Test
     void testGetCategoriesByKeyword_CategoriesFound() {
-        CategoryEntity entity = new CategoryEntity(1L, "Call of Duty", new byte[]{0x1, 0x2, 0x3});
+
+        CategoryEntity entity = new CategoryEntity(1L, uuid, "Call of Duty", new byte[]{0x1, 0x2, 0x3});
         when(categoryRepository.findByKeyword("Call")).thenReturn(Flux.just(entity));
 
         StepVerifier.create(categoryService.getCategoriesByKeyword("Call"))
                 .assertNext(category -> {
                     assertEquals(1L, category.getId());
+                    assertEquals(uuid, category.getCategoryId());
                     assertEquals("Call of Duty", category.getName());
                 })
                 .verifyComplete();
@@ -87,7 +97,7 @@ public class CategoryServiceImplTest {
 
     @Test
     void testAddCategory_SuccessfullySaved() {
-        Category category = new Category(3L, "Minecraft", base64Image);
+        Category category = new Category(3L, uuid, "Minecraft", base64Image);
         CategoryEntity entity = CategoryConverter.convertToEntity(category);
 
         when(categoryRepository.save(entity)).thenReturn(Mono.empty());
@@ -98,7 +108,8 @@ public class CategoryServiceImplTest {
 
     @Test
     void testAddCategory_SaveFails() {
-        Category category = new Category(4L, "Broken Category", base64Image);
+
+        Category category = new Category(4L, uuid, "Broken Category", base64Image);
         CategoryEntity entity = CategoryConverter.convertToEntity(category);
 
         when(categoryRepository.save(entity)).thenReturn(Mono.error(new RuntimeException("DB error")));
@@ -110,7 +121,8 @@ public class CategoryServiceImplTest {
 
     @Test
     void testUpdateCategory_Success() {
-        Category category = new Category(5L, "Call of Duty: Black Ops III", base64Image);
+
+        Category category = new Category(5L, uuid, "Call of Duty: Black Ops III", base64Image);
         CategoryEntity entity = CategoryConverter.convertToEntity(category);
 
         when(categoryRepository.save(entity)).thenReturn(Mono.empty());
@@ -121,8 +133,8 @@ public class CategoryServiceImplTest {
 
     @Test
     void testUpdateCategory_SaveFails() {
-        Category category = new Category(6L, "Fail Game", base64Image);
-        CategoryEntity entity = new CategoryEntity(6L, "Fail Game", new byte[]{0x1, 0x2, 0x3});
+        Category category = new Category(6L, uuid1, "Fail Game", base64Image);
+        CategoryEntity entity = new CategoryEntity(6L, uuid1, "Fail Game", new byte[]{0x1, 0x2, 0x3});
 
         when(categoryRepository.save(entity)).thenReturn(Mono.error(new RuntimeException("Save failed")));
 
