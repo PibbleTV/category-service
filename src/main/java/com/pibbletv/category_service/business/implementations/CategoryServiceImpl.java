@@ -12,6 +12,8 @@ import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.UUID;
+
 
 @Service
 @AllArgsConstructor
@@ -34,8 +36,10 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public Mono<Void> addCategory(Category category) {
 
-        CategoryEntity categoryEntity = CategoryConverter.convertToEntity(category);
+        UUID uuid = UUID.randomUUID();
+        category.setCategoryId(uuid);
 
+        CategoryEntity categoryEntity = CategoryConverter.convertToEntity(category);
 
         return categoryRepository.save(categoryEntity)
                 .then();

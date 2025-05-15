@@ -1,5 +1,6 @@
 package com.pibbletv.category_service.persistance.entities;
 
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -8,6 +9,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 import jakarta.validation.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Length;
+
+import java.util.UUID;
 
 @Data
 @Builder
@@ -18,6 +21,9 @@ public class CategoryEntity {
 
     @Id
     private Long id;
+
+    @NotNull
+    private UUID categoryId;
 
     @NotEmpty
     @Length(min = 1, max = 25)
