@@ -29,7 +29,7 @@
 </td>
 <td>
 <div class="infoBox" id="failures">
-<div class="counter">0</div>
+<div class="counter">2</div>
 <p>failures</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.659s</div>
+<div class="counter">3.631s</div>
 <p>duration</p>
 </div>
 </td>
@@ -50,8 +50,8 @@
 </div>
 </td>
 <td>
-<div class="infoBox success" id="successRate">
-<div class="percent">100%</div>
+<div class="infoBox failures" id="successRate">
+<div class="percent">77%</div>
 <p>successful</p>
 </div>
 </td>
@@ -61,9 +61,79 @@
 <div class="tab-container">
 <ul class="tabLinks">
 <li>
+<a href="#">Failed tests</a>
+</li>
+<li>
 <a href="#">Tests</a>
 </li>
 </ul>
+<div class="tab">
+<h2>Failed tests</h2>
+<div class="test">
+<a name="testAddCategory_SaveFails()"></a>
+<h3 class="failures">testAddCategory_SaveFails()</h3>
+<span class="code">
+<pre>org.mockito.exceptions.misusing.PotentialStubbingProblem: 
+Strict stubbing argument mismatch. Please check:
+ - this invocation of 'save' method:
+    categoryRepository.save(
+    CategoryEntity(id=4, categoryId=99e937ca-4f9a-499c-bc23-148a9fbf9773, name=Broken Category, image=[1, 2, 3])
+);
+    -&gt; at com.pibbletv.category_service.business.implementations.CategoryServiceImpl.addCategory(CategoryServiceImpl.java:44)
+ - has following stubbing(s) with different arguments:
+    1. categoryRepository.save(
+    CategoryEntity(id=4, categoryId=cb46bf53-f027-4d56-8cf3-8380301634e4, name=Broken Category, image=[1, 2, 3])
+);
+      -&gt; at com.pibbletv.category_service.unit.CategoryServiceImplTest.testAddCategory_SaveFails(CategoryServiceImplTest.java:115)
+Typically, stubbing argument mismatch indicates user mistake when writing tests.
+Mockito fails early so that you can debug potential problem easily.
+However, there are legit scenarios when this exception generates false negative signal:
+  - stubbing the same method multiple times using 'given().will()' or 'when().then()' API
+    Please use 'will().given()' or 'doReturn().when()' API for stubbing.
+  - stubbed method is intentionally invoked with different arguments by code under test
+    Please use default or 'silent' JUnit Rule (equivalent of Strictness.LENIENT).
+For more information see javadoc for PotentialStubbingProblem class.
+	at app//com.pibbletv.category_service.business.implementations.CategoryServiceImpl.addCategory(CategoryServiceImpl.java:44)
+	at app//com.pibbletv.category_service.unit.CategoryServiceImplTest.testAddCategory_SaveFails(CategoryServiceImplTest.java:117)
+	at java.base@17.0.12/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base@17.0.12/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base@17.0.12/java.util.ArrayList.forEach(ArrayList.java:1511)
+</pre>
+</span>
+</div>
+<div class="test">
+<a name="testAddCategory_SuccessfullySaved()"></a>
+<h3 class="failures">testAddCategory_SuccessfullySaved()</h3>
+<span class="code">
+<pre>org.mockito.exceptions.misusing.PotentialStubbingProblem: 
+Strict stubbing argument mismatch. Please check:
+ - this invocation of 'save' method:
+    categoryRepository.save(
+    CategoryEntity(id=3, categoryId=ca9725ec-ca13-4ff4-99ca-e35ca1282b5f, name=Minecraft, image=[1, 2, 3])
+);
+    -&gt; at com.pibbletv.category_service.business.implementations.CategoryServiceImpl.addCategory(CategoryServiceImpl.java:44)
+ - has following stubbing(s) with different arguments:
+    1. categoryRepository.save(
+    CategoryEntity(id=3, categoryId=d0dd852c-8859-4658-866c-d70b34208177, name=Minecraft, image=[1, 2, 3])
+);
+      -&gt; at com.pibbletv.category_service.unit.CategoryServiceImplTest.testAddCategory_SuccessfullySaved(CategoryServiceImplTest.java:103)
+Typically, stubbing argument mismatch indicates user mistake when writing tests.
+Mockito fails early so that you can debug potential problem easily.
+However, there are legit scenarios when this exception generates false negative signal:
+  - stubbing the same method multiple times using 'given().will()' or 'when().then()' API
+    Please use 'will().given()' or 'doReturn().when()' API for stubbing.
+  - stubbed method is intentionally invoked with different arguments by code under test
+    Please use default or 'silent' JUnit Rule (equivalent of Strictness.LENIENT).
+For more information see javadoc for PotentialStubbingProblem class.
+	at app//com.pibbletv.category_service.business.implementations.CategoryServiceImpl.addCategory(CategoryServiceImpl.java:44)
+	at app//com.pibbletv.category_service.unit.CategoryServiceImplTest.testAddCategory_SuccessfullySaved(CategoryServiceImplTest.java:105)
+	at java.base@17.0.12/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base@17.0.12/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base@17.0.12/java.util.ArrayList.forEach(ArrayList.java:1511)
+</pre>
+</span>
+</div>
+</div>
 <div class="tab">
 <h2>Tests</h2>
 <table>
@@ -75,48 +145,48 @@
 </tr>
 </thead>
 <tr>
-<td class="success">testAddCategory_SaveFails()</td>
-<td class="success">0.599s</td>
-<td class="success">passed</td>
+<td class="failures">testAddCategory_SaveFails()</td>
+<td class="failures">3.259s</td>
+<td class="failures">failed</td>
 </tr>
 <tr>
-<td class="success">testAddCategory_SuccessfullySaved()</td>
-<td class="success">0.003s</td>
-<td class="success">passed</td>
+<td class="failures">testAddCategory_SuccessfullySaved()</td>
+<td class="failures">0.005s</td>
+<td class="failures">failed</td>
 </tr>
 <tr>
 <td class="success">testDeleteCategory_CategoryNotFound()</td>
-<td class="success">0.008s</td>
+<td class="success">0.011s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">testGetAllCategories_AllCategories_FetchedSuccessfully()</td>
-<td class="success">0.031s</td>
+<td class="success">0.320s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">testGetAllCategories_EmptyList()</td>
-<td class="success">0.003s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">testGetCategoriesByKeyword_CategoriesFound()</td>
 <td class="success">0.005s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
+<td class="success">testGetCategoriesByKeyword_CategoriesFound()</td>
+<td class="success">0.007s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
 <td class="success">testGetCategoriesByKeyword_NoMatch()</td>
-<td class="success">0.004s</td>
+<td class="success">0.010s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">testUpdateCategory_SaveFails()</td>
-<td class="success">0.003s</td>
+<td class="success">0.006s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">testUpdateCategory_Success()</td>
-<td class="success">0.003s</td>
+<td class="success">0.008s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -129,7 +199,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="https://www.gradle.org">Gradle 8.13</a> at May 13, 2025, 5:37:06 PM</p>
+<a href="https://www.gradle.org">Gradle 8.13</a> at May 16, 2025, 1:51:07 AM</p>
 </div>
 </div>
 </body>
