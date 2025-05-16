@@ -12,6 +12,8 @@ import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.UUID;
+
 
 @Service
 @AllArgsConstructor
@@ -21,40 +23,42 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public Flux&lt;Category&gt; getAllCategories() {
-<span class="fc" id="L24">        return categoryRepository.findAll()</span>
-<span class="fc" id="L25">                .map(CategoryConverter::convertToObject);</span>
+<span class="nc" id="L26">        return categoryRepository.findAll()</span>
+<span class="nc" id="L27">                .map(CategoryConverter::convertToObject);</span>
     }
 
     @Override
     public Flux&lt;Category&gt; getCategoriesByKeyword(String keyword) {
-<span class="fc" id="L30">        return categoryRepository.findByKeyword(keyword)</span>
-<span class="fc" id="L31">                .map(CategoryConverter::convertToObject);</span>
+<span class="nc" id="L32">        return categoryRepository.findByKeyword(keyword)</span>
+<span class="nc" id="L33">                .map(CategoryConverter::convertToObject);</span>
     }
 
     @Override
     public Mono&lt;Void&gt; addCategory(Category category) {
 
-<span class="fc" id="L37">        CategoryEntity categoryEntity = CategoryConverter.convertToEntity(category);</span>
+<span class="nc" id="L39">        UUID uuid = UUID.randomUUID();</span>
+<span class="nc" id="L40">        category.setCategoryId(uuid);</span>
 
+<span class="nc" id="L42">        CategoryEntity categoryEntity = CategoryConverter.convertToEntity(category);</span>
 
-<span class="fc" id="L40">        return categoryRepository.save(categoryEntity)</span>
-<span class="fc" id="L41">                .then();</span>
+<span class="nc" id="L44">        return categoryRepository.save(categoryEntity)</span>
+<span class="nc" id="L45">                .then();</span>
     }
 
     @Override
     public Mono&lt;Void&gt; updateCategory(Category category) {
 
-<span class="fc" id="L47">        CategoryEntity categoryEntity = CategoryConverter.convertToEntity(category);</span>
-<span class="fc" id="L48">        return categoryRepository.save(categoryEntity)</span>
-<span class="fc" id="L49">                .then();</span>
+<span class="nc" id="L51">        CategoryEntity categoryEntity = CategoryConverter.convertToEntity(category);</span>
+<span class="nc" id="L52">        return categoryRepository.save(categoryEntity)</span>
+<span class="nc" id="L53">                .then();</span>
     }
 
     @Override
     public Mono&lt;Void&gt; deleteCategory(Long categoryId) {
-<span class="fc" id="L54">        return categoryRepository.findById(categoryId)</span>
-<span class="pc" id="L55">                .flatMap(categoryEntity -&gt; categoryRepository.delete(categoryEntity)</span>
-<span class="nc" id="L56">                        .then())</span>
-<span class="fc" id="L57">                .switchIfEmpty(Mono.error(new Exception(&quot;Category not found&quot;)));</span>
+<span class="nc" id="L58">        return categoryRepository.findById(categoryId)</span>
+<span class="nc" id="L59">                .flatMap(categoryEntity -&gt; categoryRepository.delete(categoryEntity)</span>
+<span class="nc" id="L60">                        .then())</span>
+<span class="nc" id="L61">                .switchIfEmpty(Mono.error(new Exception(&quot;Category not found&quot;)));</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
