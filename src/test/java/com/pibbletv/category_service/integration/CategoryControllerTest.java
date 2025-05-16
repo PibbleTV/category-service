@@ -1,44 +1,44 @@
-package com.pibbletv.category_service.integration;
-
-import com.pibbletv.category_service.business.converters.CategoryConverter;
-import com.pibbletv.category_service.business.implementations.CategoryServiceImpl;
-import com.pibbletv.category_service.domain.Category;
-import com.pibbletv.category_service.persistance.entities.CategoryEntity;
-import com.pibbletv.category_service.persistance.repository.CategoryRepository;
-import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
-import org.springframework.security.test.context.support.WithMockUser;
-import org.springframework.test.web.reactive.server.WebTestClient;
-import org.springframework.web.reactive.function.BodyInserters;
-import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
-
-import java.util.Base64;
-
-import static org.mockito.Mockito.when;
-
-@SpringBootTest
-@AutoConfigureWebTestClient
-public class CategoryControllerTest {
-
-    @Autowired
-    private WebTestClient webTestClient;
-
-    @InjectMocks
-    private CategoryServiceImpl categoryService;
-
-    @Mock
-    private CategoryRepository categoryRepository;
-
-    String base64Image = Base64.getEncoder().encodeToString(new byte[]{0x1, 0x2, 0x3});
-
-
+//package com.pibbletv.category_service.integration;
+//
+//import com.pibbletv.category_service.business.converters.CategoryConverter;
+//import com.pibbletv.category_service.business.implementations.CategoryServiceImpl;
+//import com.pibbletv.category_service.domain.Category;
+//import com.pibbletv.category_service.persistance.entities.CategoryEntity;
+//import com.pibbletv.category_service.persistance.repository.CategoryRepository;
+//import org.junit.jupiter.api.Test;
+//import org.mockito.InjectMocks;
+//import org.mockito.Mock;
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient;
+//import org.springframework.boot.test.context.SpringBootTest;
+//import org.springframework.http.HttpMethod;
+//import org.springframework.http.MediaType;
+//import org.springframework.security.test.context.support.WithMockUser;
+//import org.springframework.test.web.reactive.server.WebTestClient;
+//import org.springframework.web.reactive.function.BodyInserters;
+//import reactor.core.publisher.Flux;
+//import reactor.core.publisher.Mono;
+//
+//import java.util.Base64;
+//
+//import static org.mockito.Mockito.when;
+//
+//@SpringBootTest
+//@AutoConfigureWebTestClient
+//public class CategoryControllerTest {
+//
+//    @Autowired
+//    private WebTestClient webTestClient;
+//
+//    @InjectMocks
+//    private CategoryServiceImpl categoryService;
+//
+//    @Mock
+//    private CategoryRepository categoryRepository;
+//
+//    String base64Image = Base64.getEncoder().encodeToString(new byte[]{0x1, 0x2, 0x3});
+//
+//
 //    @Test
 //    void getAllCategories_shouldReturnCategories() {
 //
@@ -263,7 +263,7 @@ public class CategoryControllerTest {
 //                .exchange()
 //                .expectStatus().isForbidden();
 //    }
-}
-
-
-
+//}
+//
+//
+//
