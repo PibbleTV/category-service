@@ -26,7 +26,7 @@ public class CategoryEntity {
 
     @NotNull
     @Column("categoryId")
-    private UUID categoryId;
+    private String categoryId;
 
     @NotEmpty
     @Length(min = 1, max = 25)

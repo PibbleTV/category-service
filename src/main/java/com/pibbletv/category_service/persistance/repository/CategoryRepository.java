@@ -1,5 +1,6 @@
 package com.pibbletv.category_service.persistance.repository;
 
+import com.pibbletv.category_service.domain.Category;
 import com.pibbletv.category_service.persistance.entities.CategoryEntity;
 import org.springframework.data.r2dbc.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -12,4 +13,6 @@ import reactor.core.publisher.Mono;
 public interface CategoryRepository extends ReactiveCrudRepository<CategoryEntity, Long> {
     @Query("SELECT * FROM categories WHERE LOWER(name) LIKE LOWER(CONCAT('%', :keyword, '%'))")
     Flux<CategoryEntity> findByKeyword(@Param("keyword") String keyword);
+
+    Mono<CategoryEntity> findByCategoryId(String categoryId);
 }

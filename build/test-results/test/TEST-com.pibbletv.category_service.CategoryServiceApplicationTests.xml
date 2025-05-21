@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.pibbletv.category_service.CategoryServiceApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-05-16T18:05:50.328Z" hostname="DESKTOP-NS6POVE" time="0.943">
+<testsuite name="com.pibbletv.category_service.CategoryServiceApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-05-18T00:58:36.703Z" hostname="DESKTOP-NS6POVE" time="1.087">
   <properties/>
-  <testcase name="contextLoads()" classname="com.pibbletv.category_service.CategoryServiceApplicationTests" time="0.943"/>
-  <system-out><![CDATA[20:05:44.485 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.pibbletv.category_service.CategoryServiceApplicationTests]: CategoryServiceApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-20:05:44.721 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.pibbletv.category_service.CategoryServiceApplication for test class com.pibbletv.category_service.CategoryServiceApplicationTests
+  <testcase name="contextLoads()" classname="com.pibbletv.category_service.CategoryServiceApplicationTests" time="1.087"/>
+  <system-out><![CDATA[02:58:30.563 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.pibbletv.category_service.CategoryServiceApplicationTests]: CategoryServiceApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+02:58:30.811 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.pibbletv.category_service.CategoryServiceApplication for test class com.pibbletv.category_service.CategoryServiceApplicationTests
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -14,19 +14,19 @@
 
  :: Spring Boot ::                (v3.4.4)
 
-2025-05-16T20:05:45.999+02:00  INFO 8692 --- [category-service] [    Test worker] c.p.c.CategoryServiceApplicationTests    : Starting CategoryServiceApplicationTests using Java 17.0.12 with PID 8692 (started by hristo in D:\Individual Assignment\PibbleTV-Backend\category-service)
-2025-05-16T20:05:46.008+02:00  INFO 8692 --- [category-service] [    Test worker] c.p.c.CategoryServiceApplicationTests    : The following 1 profile is active: "test"
-2025-05-16T20:05:47.027+02:00  INFO 8692 --- [category-service] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data R2DBC repositories in DEFAULT mode.
-2025-05-16T20:05:47.294+02:00  INFO 8692 --- [category-service] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 256 ms. Found 1 R2DBC repository interface.
-2025-05-16T20:05:47.706+02:00  INFO 8692 --- [category-service] [    Test worker] o.s.cloud.context.scope.GenericScope     : BeanFactory id=a2d25cf3-0b97-3f67-9d84-767fd8c3ee56
-2025-05-16T20:05:48.650+02:00  INFO 8692 --- [category-service] [    Test worker] ctiveUserDetailsServiceAutoConfiguration : 
+2025-05-18T02:58:32.166+02:00  INFO 13548 --- [category-service] [    Test worker] c.p.c.CategoryServiceApplicationTests    : Starting CategoryServiceApplicationTests using Java 17.0.12 with PID 13548 (started by hristo in D:\Individual Assignment\PibbleTV-Backend\category-service)
+2025-05-18T02:58:32.168+02:00  INFO 13548 --- [category-service] [    Test worker] c.p.c.CategoryServiceApplicationTests    : The following 1 profile is active: "test"
+2025-05-18T02:58:33.234+02:00  INFO 13548 --- [category-service] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data R2DBC repositories in DEFAULT mode.
+2025-05-18T02:58:33.508+02:00  INFO 13548 --- [category-service] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 262 ms. Found 1 R2DBC repository interface.
+2025-05-18T02:58:33.914+02:00  INFO 13548 --- [category-service] [    Test worker] o.s.cloud.context.scope.GenericScope     : BeanFactory id=a2d25cf3-0b97-3f67-9d84-767fd8c3ee56
+2025-05-18T02:58:34.935+02:00  INFO 13548 --- [category-service] [    Test worker] ctiveUserDetailsServiceAutoConfiguration : 
 
-Using generated security password: 9e12f797-f2d9-4254-a5bb-645a50f3b329
+Using generated security password: e19d74aa-828e-44e4-a605-775e6d62df14
 
-2025-05-16T20:05:49.554+02:00 DEBUG 8692 --- [category-service] [    Test worker] o.s.w.s.adapter.HttpWebHandlerAdapter    : enableLoggingRequestDetails='false': form data and headers will be masked to prevent unsafe logging of potentially sensitive data
-2025-05-16T20:05:49.943+02:00  INFO 8692 --- [category-service] [    Test worker] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
-2025-05-16T20:05:50.193+02:00  WARN 8692 --- [category-service] [    Test worker] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-2025-05-16T20:05:50.321+02:00  INFO 8692 --- [category-service] [    Test worker] c.p.c.CategoryServiceApplicationTests    : Started CategoryServiceApplicationTests in 5.075 seconds (process running for 7.698)
+2025-05-18T02:58:35.893+02:00 DEBUG 13548 --- [category-service] [    Test worker] o.s.w.s.adapter.HttpWebHandlerAdapter    : enableLoggingRequestDetails='false': form data and headers will be masked to prevent unsafe logging of potentially sensitive data
+2025-05-18T02:58:36.294+02:00  INFO 13548 --- [category-service] [    Test worker] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2025-05-18T02:58:36.562+02:00  WARN 13548 --- [category-service] [    Test worker] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-05-18T02:58:36.693+02:00  INFO 13548 --- [category-service] [    Test worker] c.p.c.CategoryServiceApplicationTests    : Started CategoryServiceApplicationTests in 5.333 seconds (process running for 8.022)
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
