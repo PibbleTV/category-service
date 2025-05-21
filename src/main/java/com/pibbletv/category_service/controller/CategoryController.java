@@ -42,7 +42,7 @@ public class CategoryController {
 
     @PreAuthorize("hasRole('admin')")
     @DeleteMapping(value = "/deleteCategory")
-    public Mono<Void> deleteCategory(@RequestParam Long categoryId) {
+    public Mono<Void> deleteCategory(@RequestParam String categoryId) {
         return categoryService.deleteCategory(categoryId);
     }
 

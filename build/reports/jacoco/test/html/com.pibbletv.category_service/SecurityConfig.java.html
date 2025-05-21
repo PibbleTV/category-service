@@ -19,13 +19,12 @@ import org.springframework.security.web.server.SecurityWebFilterChain;
 <span class="fc" id="L19">        http</span>
 <span class="fc" id="L20">                .csrf(ServerHttpSecurity.CsrfSpec::disable)</span>
 <span class="fc" id="L21">                .authorizeExchange(exchanges -&gt; exchanges</span>
-<span class="fc" id="L22">                        .pathMatchers(&quot;/eureka/**&quot;).authenticated()</span>
-<span class="fc" id="L23">                        .anyExchange().authenticated()</span>
+<span class="fc" id="L22">                        .anyExchange().permitAll()</span>
                 )
-<span class="fc" id="L25">                .httpBasic(Customizer.withDefaults());</span>
-//                .formLogin(ServerHttpSecurity.FormLoginSpec::disable);
+<span class="fc" id="L24">                .httpBasic(ServerHttpSecurity.HttpBasicSpec::disable)</span>
+<span class="fc" id="L25">                .formLogin(ServerHttpSecurity.FormLoginSpec::disable);</span>
 
-<span class="fc" id="L28">        return http.build();</span>
+<span class="fc" id="L27">        return http.build();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

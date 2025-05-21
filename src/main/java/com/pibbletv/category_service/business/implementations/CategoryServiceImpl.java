@@ -37,7 +37,7 @@ public class CategoryServiceImpl implements CategoryService {
     public Mono<Void> addCategory(Category category) {
 
         UUID uuid = UUID.randomUUID();
-        category.setCategoryId(uuid);
+        category.setCategoryId(uuid.toString());
 
         CategoryEntity categoryEntity = CategoryConverter.convertToEntity(category);
 
@@ -54,8 +54,8 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public Mono<Void> deleteCategory(Long categoryId) {
-        return categoryRepository.findById(categoryId)
+    public Mono<Void> deleteCategory(String categoryId) {
+        return categoryRepository.findByCategoryId(categoryId)
                 .flatMap(categoryEntity -> categoryRepository.delete(categoryEntity)
                         .then())
                 .switchIfEmpty(Mono.error(new Exception("Category not found")));

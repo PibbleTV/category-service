@@ -5,7 +5,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.UUID;
 
 @Data
 @Builder
@@ -14,7 +13,7 @@ import java.util.UUID;
 public class Category {
     private Long id;
 
-    private UUID categoryId;
+    private String categoryId;
 
     private String name;
 
