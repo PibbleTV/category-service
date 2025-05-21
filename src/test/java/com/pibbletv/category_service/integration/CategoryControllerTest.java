@@ -20,6 +20,7 @@
 //import reactor.core.publisher.Mono;
 //
 //import java.util.Base64;
+//import java.util.UUID;
 //
 //import static org.mockito.Mockito.when;
 //
@@ -42,8 +43,10 @@
 //    @Test
 //    void getAllCategories_shouldReturnCategories() {
 //
-//        Category category1 = new Category(1L, "Gaming", base64Image);
-//        Category category2 = new Category(2L, "Music", base64Image);
+//        UUID uuid1 = UUID.randomUUID();
+//        UUID uuid2 = UUID.randomUUID();
+//        Category category1 = new Category(1L, uuid1, "Gaming", base64Image);
+//        Category category2 = new Category(2L, uuid2, "Music", base64Image);
 //
 //        CategoryEntity categoryEntity1 = CategoryConverter.convertToEntity(category1);
 //        CategoryEntity categoryEntity2 = CategoryConverter.convertToEntity(category2);
